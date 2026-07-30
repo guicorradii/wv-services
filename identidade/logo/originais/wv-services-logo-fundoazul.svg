@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 790" role="img" aria-labelledby="title desc">
+  <title id="title">WV Services full-name logo on navy</title>
+  <desc id="desc">WV monogram and WV Services wordmark adapted for a deep navy background.</desc>
+  <rect width="1400" height="790" fill="#0F2544"/>
+  <g transform="translate(300 55)">
+    <path d="M82 92 H169 L233 355 L305 166 H362 L427 355 L501 92 H588 L476 468 H395 L333 294 L267 468 H184 Z" fill="#F7F4EF"/>
+    <path d="M500 92 H590 L659 354 L731 92 H818 L704 468 H615 Z" fill="#C63527"/>
+    <path d="M498 92 H519 L416 468 H395 Z" fill="#0F2544"/>
+  </g>
+  <text x="700" y="682" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="94" font-weight="700" letter-spacing="7" fill="#F7F4EF">WV SERVICES</text>
+</svg>

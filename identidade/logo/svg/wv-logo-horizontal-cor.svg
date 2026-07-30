@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 990 200" role="img" aria-labelledby="t">
+  <title id="t">WV Services - logo horizontal</title>
+  <defs>
+    <mask id="gap" maskUnits="userSpaceOnUse" x="62" y="72" width="776" height="416">
+      <rect x="62" y="72" width="776" height="416" fill="#fff"/>
+      <path d="M498 92 H519 L416 468 H395 Z" fill="#000"/>
+    </mask>
+  </defs>
+  <g transform="translate(0,20) scale(0.4255) translate(-82,-92)">
+    <g mask="url(#gap)">
+      <path d="M82 92 H169 L233 355 L305 166 H362 L427 355 L501 92 H588 L476 468 H395 L333 294 L267 468 H184 Z" fill="#0F2544"/>
+      <path d="M500 92 H590 L659 354 L731 92 H818 L704 468 H615 Z" fill="#C63527"/>
+    </g>
+  </g>
+  <text x="371" y="118" fill="#0F2544" textLength="570" lengthAdjust="spacing"
+        font-family="Archivo, 'Archivo Black', 'Helvetica Neue', Arial, sans-serif"
+        font-size="94" font-weight="800">SERVICES</text>
+  <text x="373" y="160" fill="#0F2544" opacity="0.72" textLength="568" lengthAdjust="spacing"
+        font-family="Archivo, 'Helvetica Neue', Arial, sans-serif"
+        font-size="21" font-weight="700">GENERAL CONTRACTOR &#183; BOSTON, MA</text>
+</svg>

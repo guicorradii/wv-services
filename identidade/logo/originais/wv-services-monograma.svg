@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">WV Services corporate monogram</title>
+  <desc id="desc">A precise, flat, two-color typographic WV monogram for a professional general contractor.</desc>
+  <rect width="900" height="560" fill="#F7F4EF"/>
+  <path
+    d="M82 92 H169 L233 355 L305 166 H362 L427 355 L501 92 H588 L476 468 H395 L333 294 L267 468 H184 Z"
+    fill="#0F2544"
+  />
+  <path
+    d="M500 92 H590 L659 354 L731 92 H818 L704 468 H615 Z"
+    fill="#C63527"
+  />
+  <path
+    d="M498 92 H519 L416 468 H395 Z"
+    fill="#F7F4EF"
+  />
+</svg>

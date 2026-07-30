@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 440" role="img" aria-labelledby="title desc">
+  <title id="title">WV Services horizontal logo</title>
+  <desc id="desc">WV monogram in navy and brick red with Services wordmark on the right, for website headers.</desc>
+  <g transform="translate(30 8) scale(.72)">
+    <path d="M82 92 H169 L233 355 L305 166 H362 L427 355 L501 92 H588 L476 468 H395 L333 294 L267 468 H184 Z" fill="#0F2544"/>
+    <path d="M500 92 H590 L659 354 L731 92 H818 L704 468 H615 Z" fill="#C63527"/>
+    <path d="M498 92 H519 L416 468 H395 Z" fill="none"/>
+  </g>
+  <text
+    x="650" y="282"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="155"
+    font-weight="700"
+    letter-spacing="8"
+    fill="#0F2544"
+  >SERVICES</text>
+</svg>

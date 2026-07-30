@@ -1,110 +1,68 @@
-# MazyOS
+# WV Services
 
-> O sistema operacional do seu negócio dentro do Claude Code.
+> Sistema operacional da WV Services — general contractor em Boston, MA.
 
-Você acaba de instalar o MazyOS. Em alguns minutos, sua empresa vai
-ter uma memória própria, uma identidade visual aplicada em tudo que
-o sistema gerar, e 15 skills prontas pra fazer marketing, SEO, ads
-e operação rodarem com você dirigindo.
+Reposicionamento de marca e construção da aquisição digital: identidade, site,
+Instagram e anúncios. A empresa existe e entrega bem, mas vive 100% de indicação —
+o projeto é construir o canal que traz cliente novo.
 
-Bora voar.
-
----
-
-## Ligando o sistema
-
-Dois caminhos. Escolhe o que combina contigo.
-
-### Pelo Claude (mais rápido)
-
-Abre o Claude Code em qualquer pasta e cola:
-
-```
-Clona o https://github.com/mazzeoia/MazyOS.git na pasta atual,
-entra nela e roda o /instalar.
-```
-
-Ele clona, entra na pasta nova e dispara a entrevista de setup. Você
-só responde.
-
-### Pelo terminal (mais previsível)
-
-```
-git clone https://github.com/mazzeoia/MazyOS.git
-cd MazyOS
-code .
-```
-
-Na janela do VS Code que abrir: terminal integrado → `claude` → `/instalar`.
+Rodando em cima do [MazyOS](https://github.com/mazzeoia/MazyOS).
 
 ---
 
-Quando o `/instalar` terminar, renomeia a pasta `MazyOS/` pro nome do teu
-negócio (fecha o VS Code, renomeia no Explorer/Finder, abre de novo). A
-pasta não fica como "MazyOS" — ela é o teu negócio agora.
+## Onde está o quê
 
-O `/instalar` roda uma vez só. Te entrevista sobre o negócio, monta a
-memória e configura o sistema. Depois disso, é só usar.
-
----
-
-## O sistema
-
-**Núcleo** — o jeito de operar o dia a dia
-`/abrir` carrega o contexto antes de cada sessão de trabalho · `/salvar`
-faz commit + push no GitHub · `/atualizar` varre o projeto e atualiza
-a memória · `/novo-projeto` cria pasta isolada pra cada cliente ou
-iniciativa · `/mapear-rotinas` descobre o que você repete e transforma
-em skill personalizada.
-
-**Conteúdo e SEO** — vitrine pública da empresa
-`/carrossel` cria carrosséis 1080×1350 com identidade da marca (com ou
-sem foto IA) · `/publicar-tema` pega um tema e entrega artigo de blog +
-carrossel + 3 legendas amarradas · `/seo` roda fluxo completo de 8 passos
-(demanda, concorrência, GMB, on-page, conteúdo, ads, monitoramento, GEO)
-· `/responder-avaliacoes` escreve respostas humanas pras reviews do
-Google · `/aprovar-post` publica blog + Instagram + Facebook num comando.
-
-**Anúncios pagos** — onde o dinheiro entra
-`/anuncio-google` monta a campanha inteira em CSV pronto pra importar
-no Google Ads Editor · `/relatorio-ads` lê os exports de Google + Meta
-e devolve relatório semanal com alertas e recomendações.
-
-**Produção** — ferramentas do dia a dia
-`/analisar-dados` lê CSV/XLSX/PDF e gera resumo executivo ·
-`/email-profissional` rascunha email a partir de contexto livre.
+| Pasta | O que tem |
+|---|---|
+| `_memoria/` | Quem é a empresa, tom de voz, foco atual, perguntas pendentes pro Wellington |
+| `identidade/` | Marca — design guide, brand board e todos os arquivos de logo |
+| `projetos/` | Uma pasta por iniciativa, cada uma com seu `CLAUDE.md` e `briefing.md` |
+| `marketing/` | Campanhas, conteúdo, mídia paga |
+| `dados/` | Drop zone — CSV, PDF, fotos a processar *(não versionado)* |
+| `saidas/` | Documentos pontuais |
 
 ---
 
-## A tese
+## Status
 
-IA não é uma ferramenta que sua empresa usa. É o sistema operacional em
-que ela roda.
+| Frente | Estado |
+|---|---|
+| **Identidade visual** | ✅ Fechada em 30/07/2026 |
+| **Site** | 🔨 Não iniciado — `projetos/Site-WV-Services/` |
+| **Instagram** | ⏸️ Depois do site |
+| **Anúncios** | ⏸️ Depois do site e do Instagram |
+| **Painel interno** | ⏸️ Reservado — `projetos/Painel-WV-Services/` |
 
-A diferença não é velocidade. É capacidade nova — uma pessoa com IA
-constrói o que antes exigia time inteiro. Cada processo crítico que hoje
-roda em open loop (decide → executa → não mede → repete cego) vira
-closed loop dentro do MazyOS (decide → executa → captura → realimenta →
-ajusta sozinho).
-
-O sistema não substitui você. Vira parte da sua empresa.
-
----
-
-## Como o MazyOS pensa
-
-`_memoria/` é o cérebro. Tudo que importa do seu negócio mora aqui —
-quem é a empresa, como ela fala, o que tá em foco essa semana. O Claude
-lê isso antes de cada resposta. Quanto melhor a memória, melhor o sistema.
-
-`identidade/` é o rosto. Cores, fontes, logo, padrão visual. Todo
-carrossel, slide, peça que o sistema gera respeita isso.
-
-`marketing/`, `saidas/` e `scripts/` são o resultado. O sistema produz,
-versiona no GitHub, fica tudo seu.
+**Bloqueio do site:** fotos de obra real. Estrutura pode ser montada com placeholder,
+mas nenhuma peça fecha sem elas.
 
 ---
 
-## Quando precisar
+## A marca em três linhas
 
-[mazzeoia.com.br](https://mazzeoia.com.br)
+Navy `#0F2544` · Brick red `#C63527` · Paper `#F7F4EF` · Archivo + Inter
+
+O vermelho é de **tijolo de Boston**, não de bandeira — azul e vermelho primários são o
+uniforme genérico do setor de home services nos EUA, e a ideia era não parecer com o
+concorrente.
+
+Referência visual completa: abra `identidade/brand-board.html` no navegador.
+Qual arquivo de logo usar em cada situação: `identidade/logo/README.md`.
+
+---
+
+## Comandos do dia a dia
+
+`/abrir` carrega o contexto antes de trabalhar · `/salvar` faz commit e push ·
+`/atualizar` varre o projeto e atualiza a memória · `/novo-projeto` cria pasta isolada ·
+`/carrossel`, `/publicar-tema`, `/seo`, `/anuncio-google` e outras skills em `.claude/skills/`
+
+---
+
+## Regra que vale pra tudo
+
+**Todo texto de cliente final sai em inglês americano.** O cliente é americano.
+A conversa de trabalho é em português.
+
+O Wellington está **1 hora atrás** do horário do Brasil (Boston). Considerar em
+agendamento de post, horário de anúncio e qualquer contato com ele.

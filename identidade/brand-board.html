@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WV Services — Identidade Visual v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F2544;
+    --brick:#C63527;
+    --paper:#F7F4EF;
+    --neutral:#D8D2C8;
+    --white:#FFFFFF;
+    --ink:#0F2544;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+
+  /* ---------- typographic system ---------- */
+  h1,h2,h3,h4,.mono-label{font-family:Archivo,Inter,sans-serif}
+  h1{font-weight:800;letter-spacing:-.03em;line-height:1.02;margin:0}
+  h2{font-weight:800;letter-spacing:-.02em;font-size:34px;line-height:1.1;margin:0 0 10px}
+  h3{font-weight:700;letter-spacing:-.01em;font-size:19px;margin:0 0 8px}
+  .mono-label{
+    font-weight:700;text-transform:uppercase;letter-spacing:.09em;
+    font-size:11px;color:var(--brick);
+  }
+  .rule{width:48px;height:3px;background:var(--brick);margin-bottom:18px}
+  .lede{font-size:18px;line-height:1.6;max-width:62ch;color:#3C4C63}
+  p{max-width:66ch}
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;
+    background:rgba(15,37,68,.06);padding:2px 6px;border-radius:3px;
+  }
+
+  /* ---------- layout ---------- */
+  section{padding:64px 0;border-top:1px solid var(--neutral)}
+  section:first-of-type{border-top:none}
+  .grid{display:grid;gap:24px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:860px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:620px){.g2,.g3,.g4{grid-template-columns:1fr}.wrap{padding:0 20px}}
+
+  .card{background:var(--white);border:1px solid var(--neutral);border-radius:4px;padding:24px}
+  .pad{padding:32px}
+
+  /* ---------- masthead ---------- */
+  .masthead{background:var(--navy);color:var(--white);padding:72px 0 64px}
+  .masthead .mono-label{color:#8FA6C4}
+  .masthead h1{font-size:clamp(40px,7vw,76px)}
+  .masthead .sub{color:#A9BBD1;font-size:17px;margin-top:18px;max-width:56ch}
+  .masthead .rule{background:var(--brick)}
+
+  /* ---------- logo stage ---------- */
+  .stage{
+    border:1px solid var(--neutral);border-radius:4px;background:var(--white);
+    display:flex;align-items:center;justify-content:center;
+    padding:44px 32px;min-height:190px;
+  }
+  .stage.navy{background:var(--navy);border-color:var(--navy)}
+  .stage.brick{background:var(--brick);border-color:var(--brick)}
+  .stage.paper{background:var(--paper)}
+  .caption{font-size:12.5px;color:#5C6B80;margin-top:10px;line-height:1.5}
+
+  /* ---------- lockups ---------- */
+  .lockup{display:flex;align-items:center;gap:18px}
+  .lockup svg{display:block}
+  .wordmark{font-family:Archivo,sans-serif;font-weight:800;letter-spacing:-.015em;line-height:.92}
+  .wordmark .l1{display:block;font-size:34px}
+  .descriptor{
+    font-family:Archivo,sans-serif;font-weight:700;text-transform:uppercase;
+    letter-spacing:.14em;font-size:9.5px;margin-top:7px;opacity:.72;
+  }
+  .stacked{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
+  .stacked .divider{width:40px;height:2px;background:var(--brick);margin:2px auto 0}
+
+  .icon-badge{
+    background:var(--navy);border-radius:6px;display:flex;align-items:center;justify-content:center;
+  }
+
+  /* ---------- swatches ---------- */
+  .sw{border:1px solid var(--neutral);border-radius:4px;overflow:hidden;background:var(--white)}
+  .sw .chip{height:118px}
+  .sw .meta{padding:14px 16px}
+  .sw .name{font-family:Archivo,sans-serif;font-weight:700;font-size:14px}
+  .sw .hex{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:#5C6B80;margin-top:3px}
+  .sw .use{font-size:12px;color:#5C6B80;margin-top:8px;line-height:1.45}
+
+  table{border-collapse:collapse;width:100%;font-size:14px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--neutral)}
+  th{font-family:Archivo,sans-serif;font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:#5C6B80}
+  .pass{color:#1F6B3E;font-weight:600}
+
+  /* ---------- type specimen ---------- */
+  .spec{border-left:3px solid var(--brick);padding-left:20px;margin:22px 0}
+  .spec .big{font-family:Archivo,sans-serif;font-weight:800;font-size:44px;letter-spacing:-.03em;line-height:1.05}
+  .spec .note{font-size:12.5px;color:#5C6B80;margin-top:8px}
+  .scale-row{display:flex;align-items:baseline;gap:18px;padding:12px 0;border-bottom:1px solid var(--neutral)}
+  .scale-row .tag{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#5C6B80;min-width:132px;flex-shrink:0}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-block;font-family:Inter,sans-serif;font-weight:500;font-size:15px;
+    padding:14px 28px;border-radius:4px;text-decoration:none;border:none;cursor:default;
+  }
+  .btn-primary{background:var(--brick);color:#fff}
+  .btn-secondary{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+  .btn-onnavy{background:var(--brick);color:#fff}
+
+  /* ---------- applications ---------- */
+  .app{border:1px solid var(--neutral);border-radius:4px;overflow:hidden;background:var(--white)}
+  .app-head{
+    padding:9px 14px;background:var(--paper);border-bottom:1px solid var(--neutral);
+    font-family:Archivo,sans-serif;font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;color:#5C6B80;
+  }
+  .app-body{padding:22px}
+
+  /* site header mock */
+  .site-nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .site-nav .links{display:flex;gap:22px;font-size:13.5px;color:#3C4C63}
+  .site-hero{margin-top:26px;padding-top:26px;border-top:1px solid var(--neutral)}
+  .site-hero h4{font-size:clamp(24px,3.6vw,38px);font-weight:800;letter-spacing:-.028em;line-height:1.06;margin:0 0 14px;max-width:19ch}
+  .site-hero p{font-size:14.5px;color:#3C4C63;max-width:44ch;margin:0 0 20px}
+
+  /* instagram */
+  .ig-profile{display:flex;gap:20px;align-items:flex-start}
+  .ig-av{width:84px;height:84px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
+  .ig-handle{font-family:Archivo,sans-serif;font-weight:700;font-size:16px}
+  .ig-bio{font-size:13px;line-height:1.55;color:#3C4C63;margin-top:7px;white-space:pre-line}
+  .ig-post{aspect-ratio:4/5;background:var(--navy);color:#fff;padding:34px;display:flex;flex-direction:column;justify-content:space-between;border-radius:4px}
+  .ig-post .kicker{font-family:Archivo,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:10px;color:#F0A99F}
+  .ig-post h4{font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(22px,3.2vw,32px);letter-spacing:-.025em;line-height:1.08;margin:14px 0 0}
+  .ig-post .foot{display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:11.5px;color:#A9BBD1}
+
+  /* business card */
+  .bcard{aspect-ratio:1.75/1;border-radius:4px;padding:26px;display:flex;flex-direction:column;justify-content:space-between}
+  .bcard.front{background:var(--navy);color:#fff}
+  .bcard.back{background:var(--paper);border:1px solid var(--neutral)}
+  .bcard .nm{font-family:Archivo,sans-serif;font-weight:800;font-size:17px;letter-spacing:-.01em}
+  .bcard .rl{font-size:11.5px;color:#A9BBD1;margin-top:3px}
+  .bcard .ct{font-size:12px;line-height:1.7}
+
+  /* do / dont */
+  .dd{border-radius:4px;padding:20px 22px;border:1px solid var(--neutral);background:var(--white)}
+  .dd h4{margin:0 0 12px;font-family:Archivo,sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.09em}
+  .dd.do h4{color:#1F6B3E}
+  .dd.dont h4{color:var(--brick)}
+  .dd ul{margin:0;padding-left:19px;font-size:14px;line-height:1.72}
+  .dd li{margin-bottom:5px}
+
+  footer{background:var(--navy);color:#A9BBD1;padding:44px 0;font-size:13.5px;margin-top:8px}
+  footer strong{color:#fff}
+</style>
+</head>
+<body>
+
+<!-- ============ SVG DEFS: o monograma ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Monograma WV. O vão entre o W e o V é vão de verdade (mask), não retângulo
+         pintado na cor do fundo — por isso funciona sobre qualquer fundo. -->
+    <mask id="wvgap" maskUnits="userSpaceOnUse" x="62" y="72" width="776" height="416">
+      <rect x="62" y="72" width="776" height="416" fill="#fff"/>
+      <path d="M498 92 H519 L416 468 H395 Z" fill="#000"/>
+    </mask>
+    <symbol id="wv-two" viewBox="0 0 736 376">
+      <g transform="translate(-82,-92)">
+        <g mask="url(#wvgap)">
+          <path d="M82 92 H169 L233 355 L305 166 H362 L427 355 L501 92 H588 L476 468 H395 L333 294 L267 468 H184 Z" fill="#0F2544"/>
+          <path d="M500 92 H590 L659 354 L731 92 H818 L704 468 H615 Z" fill="#C63527"/>
+        </g>
+      </g>
+    </symbol>
+    <symbol id="wv-mono" viewBox="0 0 736 376">
+      <g transform="translate(-82,-92)">
+        <g mask="url(#wvgap)" fill="currentColor">
+          <path d="M82 92 H169 L233 355 L305 166 H362 L427 355 L501 92 H588 L476 468 H395 L333 294 L267 468 H184 Z"/>
+          <path d="M500 92 H590 L659 354 L731 92 H818 L704 468 H615 Z"/>
+        </g>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ MASTHEAD ============ -->
+<div class="masthead">
+  <div class="wrap">
+    <div class="mono-label">Identidade visual · versão 1 · 30 jul 2026</div>
+    <div class="rule" style="margin-top:14px"></div>
+    <h1>WV Services</h1>
+    <p class="sub">General contractor em Boston, MA. Este documento define como a marca
+      aparece em tudo — site, Instagram, anúncio, orçamento, van.</p>
+    <div style="margin-top:40px"><svg width="230" height="128"><use href="#wv-mono" color="#FFFFFF"/></svg></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ============ A IDEIA ============ -->
+<section>
+  <div class="mono-label">01</div><div class="rule" style="margin-top:12px"></div>
+  <h2>A ideia</h2>
+  <p class="lede">O Wellington pediu azul e vermelho, pela bandeira. O problema é que azul
+    e vermelho primários são o uniforme do setor de home services nos EUA — encanador,
+    HVAC, contractor, todos idênticos.</p>
+  <div class="grid g3" style="margin-top:30px">
+    <div class="card">
+      <h3>Vermelho de Boston, não da bandeira</h3>
+      <p style="font-size:14.5px;margin:0;color:#3C4C63">Boston é cidade de tijolo vermelho.
+        Brick red é a cor do lugar onde ele trabalha — entrega a leitura patriótica que ele
+        quer e uma raiz local que concorrente genérico não tem.</p>
+    </div>
+    <div class="card">
+      <h3>Fundo quente, não branco</h3>
+      <p style="font-size:14.5px;margin:0;color:#3C4C63">Off-white em vez de branco puro.
+        É o detalhe que mais separa a marca do resto do setor, que usa branco frio e cinza
+        de template.</p>
+    </div>
+    <div class="card">
+      <h3>A confiança vem da calma</h3>
+      <p style="font-size:14.5px;margin:0;color:#3C4C63">A empresa cresceu por indicação.
+        A marca não pode gritar promoção — precisa parecer o profissional que o vizinho
+        recomenda, com um grau a mais de acabamento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGO ============ -->
+<section>
+  <div class="mono-label">02</div><div class="rule" style="margin-top:12px"></div>
+  <h2>Logo</h2>
+  <p class="lede">Monograma <strong>WV</strong> em letra chapada e angular. O W em navy, o V
+    em brick red, separados por um vão diagonal fino. As diagonais e o vértice do V
+    carregam a leitura de telhado sem desenhar uma casa — e as duas cores dividem a marca
+    exatamente nas duas letras.</p>
+
+  <div class="grid g2" style="margin-top:32px">
+    <div>
+      <div class="stage">
+        <img src="logo/svg/wv-logo-horizontal-cor.svg" alt="WV Services" style="width:330px;display:block">
+      </div>
+      <div class="caption"><strong>Horizontal — com descritor.</strong> Assinatura de email,
+        orçamento, proposta, rodapé. <code>wv-logo-horizontal-cor.svg</code></div>
+    </div>
+    <div>
+      <div class="stage paper">
+        <img src="logo/svg/wv-logo-empilhada-cor.svg" alt="WV Services" style="width:215px;display:block">
+      </div>
+      <div class="caption"><strong>Empilhada.</strong> Impresso, adesivo de van, placa de obra,
+        camiseta. <code>wv-logo-empilhada-cor.svg</code></div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:44px">Versões em uma cor</h3>
+  <p style="font-size:14.5px;color:#3C4C63">A marca tem que sobreviver a bordado, serigrafia,
+    carimbo e fax. Chapada em uma cor, não perde nada.</p>
+  <div class="grid g4" style="margin-top:18px">
+    <div>
+      <div class="stage" style="min-height:150px"><svg width="120" height="67"><use href="#wv-mono" color="#0F2544"/></svg></div>
+      <div class="caption">Navy sobre claro</div>
+    </div>
+    <div>
+      <div class="stage navy" style="min-height:150px"><svg width="120" height="67"><use href="#wv-mono" color="#FFFFFF"/></svg></div>
+      <div class="caption">Branco sobre navy</div>
+    </div>
+    <div>
+      <div class="stage brick" style="min-height:150px"><svg width="120" height="67"><use href="#wv-mono" color="#FFFFFF"/></svg></div>
+      <div class="caption">Branco sobre brick</div>
+    </div>
+    <div>
+      <div class="stage" style="min-height:150px"><svg width="120" height="67"><use href="#wv-two"/></svg></div>
+      <div class="caption">Duas cores — versão cheia</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:44px">Header do site</h3>
+  <p style="font-size:14.5px;color:#3C4C63;max-width:66ch">Versão específica pra header:
+    monograma maior, sem o descritor. Menos informação porque o header já vive ao lado do
+    menu — descritor ali é ruído.</p>
+  <div class="grid g2" style="margin-top:18px">
+    <div>
+      <div class="stage paper"><img src="logo/svg/wv-header-horizontal-cor.svg" alt="WV Services" style="width:280px;display:block"></div>
+      <div class="caption"><code>wv-header-horizontal-cor.svg</code> — em 280px, tamanho real de header</div>
+    </div>
+    <div>
+      <div class="stage navy"><img src="logo/svg/wv-header-horizontal-branco.svg" alt="WV Services" style="width:280px;display:block"></div>
+      <div class="caption"><code>wv-header-horizontal-branco.svg</code> — pra header sobre navy</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:44px">Favicon e avatar</h3>
+  <p style="font-size:14.5px;color:#3C4C63;max-width:66ch">Duas peças diferentes, e a
+    diferença importa: <strong>o favicon é branco, o avatar é duas cores.</strong> Vermelho
+    sobre navy tem contraste 1.1:1 — some a 16px. Grande, funciona; pequeno, vira borrão.</p>
+
+  <div class="grid g2" style="margin-top:18px">
+    <div class="card">
+      <div class="mono-label">Favicon — branco</div>
+      <div style="display:flex;gap:22px;align-items:flex-end;margin-top:18px;flex-wrap:wrap">
+        <div style="text-align:center"><img src="logo/svg/wv-favicon-circulo.svg" width="64" style="display:block"><div class="caption">64</div></div>
+        <div style="text-align:center"><img src="logo/svg/wv-favicon-circulo.svg" width="32" style="display:block"><div class="caption">32</div></div>
+        <div style="text-align:center"><img src="logo/svg/wv-favicon-circulo.svg" width="16" style="display:block"><div class="caption">16 real</div></div>
+      </div>
+      <div style="margin-top:22px;background:#E4E7EC;border-radius:8px 8px 0 0;padding:8px 12px;display:flex;align-items:center;gap:8px;max-width:250px">
+        <img src="logo/svg/wv-favicon-circulo.svg" width="16" height="16" style="display:block;flex-shrink:0">
+        <span style="font-size:11.5px;color:#3C4C63;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">WV Services — General Contra…</span>
+      </div>
+      <div class="caption">Como aparece na aba do navegador</div>
+    </div>
+    <div class="card">
+      <div class="mono-label">Avatar social — duas cores</div>
+      <div style="display:flex;gap:22px;align-items:flex-end;margin-top:18px;flex-wrap:wrap">
+        <div style="text-align:center"><img src="logo/svg/wv-avatar-circulo.svg" width="96" style="display:block"><div class="caption">Instagram</div></div>
+        <div style="text-align:center"><img src="logo/svg/wv-avatar-circulo.svg" width="56" style="display:block"><div class="caption">56</div></div>
+        <div style="text-align:center"><img src="logo/svg/wv-avatar-circulo.svg" width="32" style="display:block"><div class="caption">32 — limite</div></div>
+      </div>
+      <div class="caption" style="margin-top:22px">Formato circular resolve o crop do
+        Instagram e do Google Business sem adaptação. Abaixo de 40px, trocar pela versão
+        branca.</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:44px">Ícone quadrado e redução</h3>
+  <div class="grid g4" style="margin-top:18px;align-items:end">
+    <div>
+      <div class="stage" style="min-height:170px">
+        <div class="icon-badge" style="width:112px;height:112px"><svg width="76" height="42"><use href="#wv-mono" color="#FFFFFF"/></svg></div>
+      </div>
+      <div class="caption">Ícone quadrado — app, atalho, marca d'água. Pra perfil e favicon,
+        usar as versões circulares acima.</div>
+    </div>
+    <div>
+      <div class="stage" style="min-height:170px">
+        <div style="display:flex;gap:18px;align-items:center">
+          <div class="icon-badge" style="width:64px;height:64px"><svg width="42" height="24"><use href="#wv-mono" color="#FFFFFF"/></svg></div>
+          <div class="icon-badge" style="width:40px;height:40px"><svg width="27" height="15"><use href="#wv-mono" color="#FFFFFF"/></svg></div>
+          <div class="icon-badge" style="width:24px;height:24px;border-radius:4px"><svg width="16" height="9"><use href="#wv-mono" color="#FFFFFF"/></svg></div>
+        </div>
+      </div>
+      <div class="caption">64px · 40px · 24px — a marca ainda lê no menor tamanho</div>
+    </div>
+    <div style="grid-column:span 2">
+      <div class="card" style="min-height:170px">
+        <h3>Regras de uso</h3>
+        <ul style="margin:0;padding-left:19px;font-size:14px;line-height:1.75;color:#3C4C63">
+          <li>Largura mínima da horizontal: <strong>120px</strong>. Abaixo disso, usar o ícone.</li>
+          <li>Respiro: metade da altura do monograma em todos os lados.</li>
+          <li>Nunca esticar, girar, contornar, sombrear ou pôr sobre foto sem placa de fundo.</li>
+          <li>Telefone <strong>nunca</strong> entra na logo.</li>
+          <li>Arquivos em <code>identidade/logo/</code>. Na dúvida, SVG.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid g2" style="margin-top:36px">
+    <div class="dd do">
+      <h4>Da logo antiga, sobreviveu</h4>
+      <ul>
+        <li>O monograma WV como centro da marca</li>
+        <li>A dupla navy + vermelho</li>
+        <li>A ideia do V lendo como telhado</li>
+      </ul>
+    </div>
+    <div class="dd dont">
+      <h4>Da logo antiga, caiu</h4>
+      <ul>
+        <li>Degradê metálico e efeito 3D nas letras</li>
+        <li>Elipse orbitando o monograma</li>
+        <li>Skyline de prédios genérico</li>
+        <li>Quatro linhas de texto empilhadas</li>
+        <li>Telefone dentro da logo</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <div class="mono-label">Consertado nos arquivos finais</div>
+    <div class="grid g4" style="margin-top:14px">
+      <div>
+        <h3 style="font-size:15px">Fundo chapado embutido</h3>
+        <p style="font-size:13.5px;margin:0;color:#3C4C63">Os SVGs traziam um retângulo de
+          fundo colorido dentro do arquivo. Logo com fundo sólido não aplica sobre foto nem
+          sobre seção colorida. Removido.</p>
+      </div>
+      <div>
+        <h3 style="font-size:15px">Vão pintado de bege</h3>
+        <p style="font-size:13.5px;margin:0;color:#3C4C63">A separação entre o W e o V era um
+          retângulo na cor do fundo. Em qualquer outro fundo apareceria uma listra bege
+          atravessando a marca. Refeito com máscara — é o que permite as versões em uma cor
+          existirem.</p>
+      </div>
+      <div>
+        <h3 style="font-size:15px">Texto em Arial</h3>
+        <p style="font-size:13.5px;margin:0;color:#3C4C63">O "SERVICES" vinha em Arial, fora
+          do sistema tipográfico. Trocado por Archivo, com a largura travada em
+          <code>textLength</code> — a logo não muda de proporção se a fonte faltar.</p>
+      </div>
+      <div>
+        <h3 style="font-size:15px">Header transbordando</h3>
+        <p style="font-size:13.5px;margin:0;color:#3C4C63">No header original o texto
+          terminava fora do viewBox — em Archivo, que é mais larga, cortaria mais.
+          Recalculado com folga.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CORES ============ -->
+<section>
+  <div class="mono-label">03</div><div class="rule" style="margin-top:12px"></div>
+  <h2>Cores</h2>
+  <p class="lede">Cinco cores. Nenhum degradê. Se uma peça precisa de uma sexta cor, o
+    problema é a peça.</p>
+
+  <div class="grid g4" style="margin-top:30px">
+    <div class="sw">
+      <div class="chip" style="background:#0F2544"></div>
+      <div class="meta">
+        <div class="name">Navy</div><div class="hex">#0F2544</div>
+        <div class="use">Texto, títulos, fundos invertidos. É a cor institucional da marca.</div>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background:#C63527"></div>
+      <div class="meta">
+        <div class="name">Brick Red</div><div class="hex">#C63527</div>
+        <div class="use">Botão, CTA, régua de seção, destaque. Usar com parcimônia — vale pelo contraste.</div>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background:#F7F4EF;border-bottom:1px solid var(--neutral)"></div>
+      <div class="meta">
+        <div class="name">Paper</div><div class="hex">#F7F4EF</div>
+        <div class="use">Fundo principal. Off-white quente — nunca branco puro em área grande.</div>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background:#D8D2C8"></div>
+      <div class="meta">
+        <div class="name">Neutro</div><div class="hex">#D8D2C8</div>
+        <div class="use">Bordas, divisores, estados desativados.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:40px">Contraste verificado (WCAG)</h3>
+  <div class="card" style="padding:8px 8px 0">
+    <table>
+      <thead><tr><th>Combinação</th><th>Razão</th><th>Nível</th><th>Onde usar</th></tr></thead>
+      <tbody>
+        <tr><td>Navy sobre Paper</td><td>14.0:1</td><td class="pass">AAA</td><td>Todo texto de corpo e título</td></tr>
+        <tr><td>Branco sobre Navy</td><td>15.3:1</td><td class="pass">AAA</td><td>Seções invertidas, rodapé</td></tr>
+        <tr><td>Branco sobre Brick</td><td>5.3:1</td><td class="pass">AA</td><td>Botão primário</td></tr>
+        <tr><td>Brick sobre Paper</td><td>4.8:1</td><td class="pass">AA</td><td>Labels, links, régua</td></tr>
+        <tr><td>Brick sobre Navy</td><td>1.1:1</td><td style="color:#C63527;font-weight:600">Reprovado</td><td>Nunca. Combinação proibida.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ TIPOGRAFIA ============ -->
+<section>
+  <div class="mono-label">04</div><div class="rule" style="margin-top:12px"></div>
+  <h2>Tipografia</h2>
+  <p class="lede">Duas famílias, ambas gratuitas no Google Fonts — sem atrito na hora de
+    montar o site. Nem Montserrat nem Oswald, que é onde o setor inteiro está.</p>
+
+  <div class="grid g2" style="margin-top:30px">
+    <div class="card">
+      <div class="mono-label">Títulos</div>
+      <div class="spec">
+        <div class="big">Archivo</div>
+        <div class="note">700 / 800 · tracking −0.02em<br>Sólida, levemente técnica. Tem peso de coisa construída.</div>
+      </div>
+      <div style="font-family:Archivo;font-weight:800;font-size:26px;letter-spacing:-.025em;line-height:1.15">
+        Kitchen remodels that hold up.
+      </div>
+    </div>
+    <div class="card">
+      <div class="mono-label">Corpo</div>
+      <div class="spec">
+        <div class="big" style="font-family:Inter;font-weight:600">Inter</div>
+        <div class="note">400 corpo · 500 botão e label<br>Neutra, legível em qualquer tamanho, feita pra tela.</div>
+      </div>
+      <div style="font-size:15px;color:#3C4C63;line-height:1.65">
+        Licensed and insured. Free on-site estimate. We handle the whole job —
+        demo, build, and cleanup — so you deal with one person, not five.
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:40px">Escala</h3>
+  <div style="margin-top:6px">
+    <div class="scale-row"><span class="tag">Archivo 800 · 56px</span><span style="font-family:Archivo;font-weight:800;font-size:44px;letter-spacing:-.03em">Manchete</span></div>
+    <div class="scale-row"><span class="tag">Archivo 800 · 34px</span><span style="font-family:Archivo;font-weight:800;font-size:30px;letter-spacing:-.02em">Título de seção</span></div>
+    <div class="scale-row"><span class="tag">Archivo 700 · 19px</span><span style="font-family:Archivo;font-weight:700;font-size:19px">Subtítulo</span></div>
+    <div class="scale-row"><span class="tag">Inter 400 · 16px</span><span style="font-size:16px">Corpo de texto padrão</span></div>
+    <div class="scale-row"><span class="tag">Archivo 700 · 11px · +.09em</span><span class="mono-label">Label de categoria</span></div>
+  </div>
+</section>
+
+<!-- ============ ELEMENTOS ============ -->
+<section>
+  <div class="mono-label">05</div><div class="rule" style="margin-top:12px"></div>
+  <h2>Elementos</h2>
+
+  <div class="grid g3" style="margin-top:28px">
+    <div class="card">
+      <div class="mono-label">Botões</div>
+      <div style="margin-top:16px;display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+        <span class="btn btn-primary">Get a Free Estimate</span>
+        <span class="btn btn-secondary">See Our Work</span>
+      </div>
+      <div class="caption">Radius 4px · Inter 500 · padding 14/28</div>
+    </div>
+    <div class="card" style="background:var(--navy)">
+      <div class="mono-label" style="color:#F0A99F">Em fundo navy</div>
+      <div style="margin-top:16px;display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+        <span class="btn btn-onnavy">Call (508) 818-7005</span>
+        <span class="btn" style="border:1.5px solid rgba(255,255,255,.45);color:#fff">Request a Quote</span>
+      </div>
+      <div class="caption" style="color:#A9BBD1">Borda branca a 45% no secundário</div>
+    </div>
+    <div class="card">
+      <div class="mono-label">Régua de seção</div>
+      <div style="margin-top:18px">
+        <div class="rule"></div>
+        <div style="font-family:Archivo;font-weight:800;font-size:22px;letter-spacing:-.02em">What We Do</div>
+      </div>
+      <div class="caption" style="margin-top:20px">Régua brick de 48×3px acima do título.
+        É o tique visual que se repete em site, carrossel e proposta.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APLICAÇÕES ============ -->
+<section>
+  <div class="mono-label">06</div><div class="rule" style="margin-top:12px"></div>
+  <h2>Aplicações</h2>
+  <p class="lede">Como isso vira coisa de verdade. Os espaços cinza marcam onde entra foto
+    de obra real — sem elas nenhuma peça fica pronta.</p>
+
+  <!-- SITE -->
+  <div class="app" style="margin-top:30px">
+    <div class="app-head">Site — header e hero</div>
+    <div class="app-body">
+      <div class="site-nav">
+        <img src="logo/svg/wv-header-horizontal-cor.svg" alt="WV Services" style="width:196px;display:block">
+        <div class="links"><span>Services</span><span>Our Work</span><span>About</span><span>Contact</span></div>
+        <span class="btn btn-primary" style="font-size:13.5px;padding:11px 20px">Free Estimate</span>
+      </div>
+      <div class="site-hero">
+        <div class="grid g2" style="align-items:center">
+          <div>
+            <div class="rule"></div>
+            <h4>Boston homes, done right the first time.</h4>
+            <p>Kitchens, bathrooms, interiors and exteriors. Licensed, insured, and
+              working in the Boston area for years.</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <span class="btn btn-primary" style="font-size:14px;padding:12px 24px">Get a Free Estimate</span>
+              <span class="btn btn-secondary" style="font-size:14px;padding:12px 24px">See Our Work</span>
+            </div>
+          </div>
+          <div style="background:var(--neutral);border-radius:4px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;color:#7C7568;font-size:12.5px;text-align:center;padding:20px">
+            Foto de obra real<br>(antes/depois de cozinha)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INSTAGRAM -->
+  <div class="grid g2" style="margin-top:24px">
+    <div class="app">
+      <div class="app-head">Instagram — perfil</div>
+      <div class="app-body">
+        <div class="ig-profile">
+          <div class="ig-av" style="background:none"><img src="logo/svg/wv-avatar-circulo.svg" alt="" style="width:84px;height:84px;display:block"></div>
+          <div>
+            <div class="ig-handle">wv.services</div>
+            <div class="ig-bio">General Contractor · Boston, MA
+Kitchens · Baths · Interiors · Exteriors
+Licensed &amp; insured · Free estimates
+📞 (508) 818-7005</div>
+          </div>
+        </div>
+        <div class="caption" style="margin-top:18px">Avatar circular em duas cores
+          (<code>wv-avatar-circulo.svg</code>) — o crop redondo do Instagram já é o formato do
+          arquivo, sem adaptação. É por isso que o monograma precisa funcionar sozinho.</div>
+      </div>
+    </div>
+    <div class="app">
+      <div class="app-head">Instagram — post 4:5</div>
+      <div class="app-body">
+        <div class="ig-post">
+          <div>
+            <div class="kicker">Kitchen · Dorchester</div>
+            <h4>Gutted and rebuilt in 3 weeks.</h4>
+          </div>
+          <div class="foot">
+            <span>Swipe for the before →</span>
+            <svg width="46" height="26"><use href="#wv-mono" color="#FFFFFF"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARTÃO -->
+  <div class="app" style="margin-top:24px">
+    <div class="app-head">Cartão de visita</div>
+    <div class="app-body">
+      <div class="grid g2">
+        <div class="bcard front">
+          <svg width="78" height="43"><use href="#wv-mono" color="#FFFFFF"/></svg>
+          <div>
+            <div class="nm">WV SERVICES</div>
+            <div class="rl">General Contractor · Boston, MA</div>
+          </div>
+        </div>
+        <div class="bcard back">
+          <div>
+            <div class="nm" style="color:var(--navy)">Wellington Corradi</div>
+            <div class="rl" style="color:#5C6B80">Owner</div>
+          </div>
+          <div class="ct" style="color:var(--navy)">
+            (508) 818-7005<br>
+            wcorradi96@gmail.com<br>
+            bookwvservices.com<br>
+            <span style="color:#5C6B80">Licensed &amp; Insured</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DO / DONT ============ -->
+<section>
+  <div class="mono-label">07</div><div class="rule" style="margin-top:12px"></div>
+  <h2>Sempre e nunca</h2>
+  <div class="grid g2" style="margin-top:26px">
+    <div class="dd do">
+      <h4>Sempre</h4>
+      <ul>
+        <li>Foto de obra real, mesmo torta — ganha de banco de imagem</li>
+        <li>Antes/depois sempre que existir</li>
+        <li>Muito espaço em branco; a marca não precisa preencher tudo</li>
+        <li>Régua brick acima do título de seção</li>
+        <li>Número e cidade concretos em vez de adjetivo</li>
+        <li>Todo texto de cliente final em inglês americano</li>
+      </ul>
+    </div>
+    <div class="dd dont">
+      <h4>Nunca</h4>
+      <ul>
+        <li>Azul e vermelho primários chapados — é o clichê do setor</li>
+        <li>Degradê, 3D, metálico, cromado, chanfro</li>
+        <li>Trabalhador sorrindo de capacete e braços cruzados</li>
+        <li>Emoji em site, orçamento ou email formal</li>
+        <li>Brick red sobre navy (contraste reprovado)</li>
+        <li>Mais de duas fontes em qualquer peça</li>
+        <li>Caixa alta em bloco de texto corrido</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="lockup" style="margin-bottom:18px">
+      <svg width="60" height="33"><use href="#wv-mono" color="#FFFFFF"/></svg>
+      <span class="wordmark" style="font-size:17px;color:#fff">SERVICES</span>
+    </div>
+    <strong>Identidade visual v1</strong> — 30 de julho de 2026.
+    Definições em <code style="background:rgba(255,255,255,.1);color:#D8D2C8">identidade/design-guide.md</code>.<br>
+    Pendente: fotos de obra real em <code style="background:rgba(255,255,255,.1);color:#D8D2C8">dados/fotos/</code>.
+  </div>
+</footer>
+
+</body>
+</html>

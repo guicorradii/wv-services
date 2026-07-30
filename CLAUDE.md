@@ -1,115 +1,141 @@
-# MazyOS — Sistema operacional do negócio
+# WV Services — MazyOS
 
-Sua empresa roda em cima desse arquivo. Aqui ficam as regras de operação
-do MazyOS — como o Claude lê o contexto, aprende com correções, mantém
-tudo atualizado e cria skills novas conforme a operação evolui.
+Operação da WV Services. Aqui mora o reposicionamento da marca, o site novo,
+o Instagram e a máquina de aquisição de cliente online.
 
-Esse arquivo é editável. Quando o `/instalar` rodar, ele complementa o
-final dessa página com as regras específicas do seu negócio.
+## O que é esse workspace
+
+Sistema operacional da WV Services — empresa de serviços residenciais nos EUA.
+O trabalho corrente é construir a camada de marca e aquisição digital que a
+empresa nunca teve.
+
+**Estrutura de pastas:**
+- `_memoria/` — quem é a empresa, como falamos, foco atual
+- `identidade/` — marca aplicada em tudo que o sistema gera
+  - `identidade/logo/` — arquivos da logo (SVG e PNG). Ver o `README.md` de lá.
+- `projetos/` — uma pasta por iniciativa, cada uma com seu `CLAUDE.md` e `briefing.md`
+  - `projetos/Site-WV-Services/` — site novo, feito do zero
+  - `projetos/Painel-WV-Services/` — sistema interno, reservado, não iniciado
+- `marketing/` — campanhas, conteúdo, mídia paga
+- `saidas/` — documentos pontuais
+- `dados/` — arquivos a analisar
+  - `dados/fotos/` — fotos de obra real do Wellington
+- `scripts/` — automações
+- `templates/` — moldes de skill e perfil
+
+Pasta a criar quando o trabalho chegar nela: `instagram/`.
+
+## Sobre a empresa
+
+WV Services é uma prestadora de serviços residenciais nos Estados Unidos —
+construção, elétrica e reparos em geral. Atende proprietários de imóveis na
+região onde o Wellington mora. Hoje a base de clientes vem quase toda de
+indicação.
+
+Wellington é o dono e executa os serviços. Guilherme (sobrinho, no Brasil)
+cuida de marca, site, redes sociais e aquisição digital.
+
+## Frentes de trabalho
+
+- **Identidade visual** — logo, paleta, tipografia, design guide *(prioridade atual)*
+- **Site** — refazer a partir do conteúdo do site atual
+- **Instagram** — bio, destaques, grade, conteúdo recorrente
+- **Anúncios** — Google e Meta, depois que marca e site estiverem prontos
+
+## Tom de voz
+
+Conteúdo de cliente final: **sempre em inglês americano.** Direto, confiável, de
+vizinho competente — a empresa cresceu por indicação e a comunicação tem que
+soar como a pessoa que o vizinho recomenda.
+
+Conversa de trabalho com o Guilherme: **português**, direto, sem cerimônia.
+
+Evitar: inglês de tradução, linguagem corporativa vazia, promessa exagerada de
+resultado, emoji em contexto formal.
+
+## Regras do sistema
+
+- Todo texto voltado ao cliente final sai em inglês. Não entregar em português
+  por engano.
+- Nenhuma peça visual definitiva antes de `identidade/design-guide.md` estar
+  fechado — ele ainda está em construção. Se uma skill visual for chamada antes
+  disso, avisar.
+- Fuso: o Wellington está 1 hora atrás do horário do Brasil. Considerar isso em
+  agendamento de post, horário de anúncio e qualquer contato com ele.
+- Referências da marca atual ficam em `identidade/referencias/` — são direção de
+  gosto, não base a copiar.
+
+## Ferramentas conectadas
+
+- [ ] Notion
+- [ ] Gmail
+- [ ] Google Calendar
+- [ ] Google Ads
+- [ ] Meta Ads
+- [ ] Slack
+
+*(Marcar conforme for instalando os MCPs)*
 
 ---
 
-## Contexto do negócio
+## Regras de operação do MazyOS
 
-No início de toda conversa, ler os seguintes arquivos (quando existirem
-e estiverem preenchidos):
+### Contexto do negócio
+
+No início de toda conversa, ler:
 
 1. `_memoria/empresa.md` — quem é o usuário, o que faz, como funciona o negócio
 2. `_memoria/preferencias.md` — tom de voz, estilo de escrita, o que evitar
 3. `_memoria/estrategia.md` — foco atual, prioridades, prazos
 
-Usar essas informações como base pra qualquer resposta ou decisão. Ao
-sugerir prioridades, formatos ou abordagens, considerar o foco atual
-descrito em `estrategia.md`.
+Pra qualquer tarefa visual, consultar `identidade/design-guide.md`.
 
-Pra qualquer tarefa visual (carrossel, post, landing page), consultar
-`identidade/design-guide.md` como referência de estilo.
+Não listar o que foi lido nem confirmar a leitura. Apenas usar o contexto.
 
-Não é necessário listar o que foi lido nem confirmar a leitura. Apenas
-usar o contexto naturalmente.
+### Fluxo de trabalho
 
----
+Antes de executar qualquer tarefa, verificar se existe skill relevante em
+`.claude/skills/`. Se encontrar, seguir as instruções da skill.
 
-## Fluxo de trabalho
-
-Antes de executar qualquer tarefa, verificar se existe skill relevante
-em `.claude/skills/`. Se encontrar, seguir as instruções da skill. Se
-não encontrar, executar a tarefa normalmente.
-
-Ao concluir uma tarefa que não tinha skill mas parece repetível (o
-usuário provavelmente vai pedir de novo no futuro), perguntar:
+Ao concluir uma tarefa sem skill que pareça repetível, perguntar:
 
 > "Isso pode virar uma skill pra próxima vez. Quer que eu crie?"
 
-Não perguntar pra tarefas pontuais ou perguntas simples. Só quando o
-padrão de repetição for claro.
+Só quando o padrão de repetição for claro.
 
----
+### Aprender com correções
 
-## Aprender com correções
-
-Quando o usuário corrigir algo, melhorar uma resposta ou dar uma
-instrução que parece permanente (frases como "na verdade é assim", "não
-faça mais isso", "prefiro assim", "sempre que...", "evita...", "da
-próxima vez..."), perguntar:
+Quando o usuário corrigir algo ou der instrução que parece permanente ("na
+verdade é assim", "não faça mais isso", "prefiro assim", "sempre que...",
+"evita..."), perguntar:
 
 > "Quer que eu salve isso pra não precisar repetir?"
 
-Se sim, identificar onde faz mais sentido salvar:
-
-- **Sobre o negócio** (clientes, serviços, mercado) → `_memoria/empresa.md`
-- **Sobre preferências e estilo** (tom de voz, formato, o que evitar) → `_memoria/preferencias.md`
-- **Sobre prioridades e foco** (projetos, metas, prazos) → `_memoria/estrategia.md`
+Onde salvar:
+- **Sobre o negócio** → `_memoria/empresa.md`
+- **Sobre preferências e estilo** → `_memoria/preferencias.md`
+- **Sobre prioridades e foco** → `_memoria/estrategia.md`
 - **Regra de comportamento nessa pasta** → próprio `CLAUDE.md`
+- **Visual** → `identidade/design-guide.md`
 
-Salvar com uma linha nova clara, sem reformatar o arquivo inteiro.
-Confirmar mostrando a linha adicionada.
+Salvar com uma linha nova clara, sem reformatar o arquivo inteiro. Confirmar
+mostrando a linha adicionada.
 
-Não perguntar se a correção for óbvia de contexto imediato (ex: "na
-verdade o arquivo se chama X"). Só perguntar quando a informação tiver
-valor duradouro.
+### Manter contexto atualizado
 
----
-
-## Manter contexto atualizado
-
-Ao terminar uma tarefa que mudou algo relevante (cliente novo, skill
-nova, mudança de foco, processo novo, ferramenta instalada, estrutura
-alterada), perguntar:
+Ao terminar tarefa que mudou algo relevante (frente nova, mudança de foco,
+processo novo, identidade fechada), perguntar:
 
 > "Isso mudou algo no teu contexto. Quer que eu atualize a memória?"
 
-Se sim, identificar o que atualizar:
+Mostrar o que vai mudar antes de salvar. Não perguntar em tarefas pontuais.
 
-- **Cliente, serviço, ferramenta, equipe** → `_memoria/empresa.md`
-- **Mudança de prioridade ou foco** → `_memoria/estrategia.md`
-- **Tom ou estilo** → `_memoria/preferencias.md`
-- **Pasta, regra de organização, skill criada** → `CLAUDE.md`
-- **Visual (cores, fontes, logo)** → `identidade/design-guide.md`
+**Dica:** rode `/atualizar` pra varredura completa quando houver dúvida.
 
-Mostrar o que vai mudar antes de salvar. Não reformatar o arquivo
-inteiro, só adicionar ou editar a linha relevante.
+### Criação de skills
 
-**Quando NÃO perguntar:**
-- Tarefas pontuais sem impacto no contexto (escrever um email avulso, criar um post)
-- Perguntas simples ou conversas sem ação
-- Mudanças já salvas pelo bloco "Aprender com correções"
-
-**Dica:** rode `/atualizar` pra uma varredura completa quando houver dúvida.
-
----
-
-## Criação de skills
-
-Quando o usuário pedir skill nova:
-
-1. Verificar se existe template relevante em `templates/skills/`. Se
-   existir, usar como base e adaptar pro contexto
-2. Perguntar se é específica desse projeto ou útil em qualquer:
-   - Específica → `.claude/skills/nome-da-skill/SKILL.md` (local)
-   - Universal → `~/.claude/skills/nome-da-skill/SKILL.md` (global)
+1. Verificar template em `templates/skills/`
+2. Perguntar se é específica desse projeto (`.claude/skills/`) ou universal (`~/.claude/skills/`)
 3. Ler `_memoria/empresa.md` e `_memoria/preferencias.md` pra calibrar
-   o conteúdo da skill ao contexto do negócio
-4. Se a skill precisar de arquivos de apoio (templates, exemplos),
-   criar dentro da pasta da skill
+4. Arquivos de apoio dentro da pasta da skill
 5. Seguir o fluxo da skill-creator nativa do Claude Code
