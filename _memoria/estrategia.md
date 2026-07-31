@@ -32,6 +32,11 @@ adesivo ou bordado.
 **Fotos de obra real.** Estrutura e layout podem ser montados com placeholder, mas nenhuma
 peça fecha sem elas. Pedido no roteiro de `_memoria/perguntas-wellington.md`.
 
+**Estado em 31/07/2026:** estrutura v1 do site já montada — `projetos/Site-WV-Services/site/index.html`,
+single-file, todas as seções (hero, serviços, antes/depois, provas, processo de obra, FAQ, contato),
+com placeholders no lugar das fotos. Falta trocar foto e preencher dados do Wellington
+(licença, anos, cidades já resolvidas).
+
 ## O que pode esperar
 
 Anúncios. Só fazem sentido depois que marca, site e perfil estiverem prontos pra receber o tráfego.
@@ -45,7 +50,9 @@ Services" (nome de outra empresa, resto do template) até o site novo entrar. Fi
 registrado como motivo pra não arrastar o cronograma do site.
 
 Coleta de contexto rodando em paralelo: `_memoria/perguntas-wellington.md` — roteiro de
-áudios pro Wellington. Ainda não enviado.
+áudios pro Wellington. **Primeiras respostas chegaram em 31/07/2026** (áudio + PDF de serviços):
+cidades atendidas definidas (Boston, Cambridge, Newton + Grande Boston), foco em cozinha/banheiro
+confirmado, linha de manutenção mapeada. Ainda faltam licença, anos de operação e casos concretos.
 
 ## Gargalo atual
 

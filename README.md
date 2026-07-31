@@ -28,7 +28,7 @@ Rodando em cima do [MazyOS](https://github.com/mazzeoia/MazyOS).
 | Frente | Estado |
 |---|---|
 | **Identidade visual** | ✅ Fechada em 30/07/2026 |
-| **Site** | 🔨 Não iniciado — `projetos/Site-WV-Services/` |
+| **Site** | 🔨 Em construção — estrutura v1 montada, aguardando fotos — `projetos/Site-WV-Services/` |
 | **Instagram** | ⏸️ Depois do site |
 | **Anúncios** | ⏸️ Depois do site e do Instagram |
 | **Painel interno** | ⏸️ Reservado — `projetos/Painel-WV-Services/` |

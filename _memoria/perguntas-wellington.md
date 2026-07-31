@@ -69,16 +69,16 @@ faz obra comercial de fato ou se foi só pra parecer maior. Muda o posicionament
 
 ## Status das respostas
 
-- [ ] 1. Serviços
+- [~] 1. Serviços — parcial (31/07): foco cozinha/banheiro, GC completo, + manutenção. Falta detalhe de caso concreto.
 - [ ] 2. O que dá dinheiro
 - [ ] 3. Último trabalho grande
 - [ ] 4. Clientes reais
 - [ ] 5. Diferencial
-- [ ] 6. Cidades
+- [x] 6. Cidades — Boston, Cambridge, Newton + Grande Boston. Cambridge é a praça principal. (31/07)
 - [ ] 7. Licença e seguro
 - [ ] 8. Anos de experiência
 - [ ] 9. Equipe e capacidade
 - [ ] 10. Objeções
 - [ ] Fotos
 - [ ] Prêmios (confirmar)
-- [ ] Commercial (confirmar)
+- [~] Commercial (confirmar) — áudio sugere que faz comercial (escritório/loja), mas confirmar se é real ou aspiracional antes de destacar. (31/07)

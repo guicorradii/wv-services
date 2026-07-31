@@ -47,6 +47,15 @@ A página `/services` do site vem com o título **"M&B Remodeling Services"** �
 empresa, resíduo do template usado. Está no ar hoje. Para um negócio cuja venda inteira é
 confiança, isso é o pior tipo de erro visível. Corrigir cedo, mesmo antes do site novo.
 
+### ✅ Esclarecimentos do Wellington (31/07/2026 — áudio + PDF de serviços)
+
+- **Foco declarado (dito duas vezes):** renovação de **cozinha e banheiro**. É a especialidade e o que puxa o posicionamento. Descreveu o processo completo de banheiro: demolir tudo, remover entulho, impermeabilizar, cement board, azulejo, parte hidráulica/elétrica — ênfase em não dar vazamento.
+- **É GC completo:** também faz casa nova, ampliação, reforma completa e obra comercial (escritório/loja) — mas isso é capacidade, não o foco. No site entrou como "General Contracting", secundário.
+- **Segunda linha real — manutenção:** predial, elétrica, residencial (pintura, acabamento, instalar gabinete, closet/armário). Não é só reforma. Virou o card "Maintenance & Repairs".
+- **Área de atendimento (RESPOSTA da pergunta 6):** **Boston, Cambridge e Newton + Grande Boston.** **Cambridge** é a praça que ele trata como principal/mais nobre.
+- **Público-alvo:** a **comunidade americana** — reforça a decisão de site 100% em inglês.
+- **Sobre a lista de ~100 serviços (PDF):** é lista genérica de capacidade de GC (o próprio texto diz isso), provavelmente gerada por IA. Não vai inteira pro site — curada em 4 frentes. O PDF tem valor real na **sequência de obra** de cozinha/banheiro (planejamento → demolição → infra → paredes/piso → louças → acabamento), que virou a seção "Our Process" do site.
+
 ### A confirmar com o Wellington
 
 - Confirma o número de licença e a seguradora (pra usar "Licensed & Insured" com prova)

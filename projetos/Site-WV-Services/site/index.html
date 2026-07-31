@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WV Services — General Contractor in Boston, MA</title>
+<meta name="description" content="Kitchen, bathroom, interior and exterior remodeling in Boston and surrounding towns. Licensed and insured. Free on-site estimates. Call (508) 818-7005.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="WV Services — General Contractor in Boston, MA">
+<meta property="og:description" content="Kitchen, bathroom, interior and exterior remodeling. Licensed and insured. Free on-site estimates.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+<!-- Fonts: Archivo (headings) + Inter (body) — both Google Fonts, per design guide -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== Tokens (design-guide v1) ===== */
+  :root{
+    --navy:#0F2544;
+    --brick:#C63527;
+    --paper:#F7F4EF;
+    --white:#FFFFFF;
+    --neutral:#D8D2C8;
+    --navy-70:rgba(15,37,68,.70);
+    --navy-55:rgba(15,37,68,.55);
+    --shadow:0 1px 3px rgba(15,37,68,.08);
+    --maxw:1120px;
+    --radius:4px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Arial,sans-serif;
+    background:var(--paper);
+    color:var(--navy);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  h1,h2,h3{font-family:'Archivo',sans-serif;letter-spacing:-.02em;line-height:1.08}
+  h1{font-weight:800}
+  h2{font-weight:800;font-size:clamp(1.9rem,4vw,2.75rem)}
+  h3{font-weight:700}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{padding:88px 0}
+
+  /* Kicker label — Archivo caps, wide tracking */
+  .kicker{
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:.72rem;
+    text-transform:uppercase;letter-spacing:.08em;color:var(--brick);
+    display:inline-block;margin-bottom:14px;
+  }
+  /* Section rule — the recurring 3px brick tick above titles */
+  .rule{width:48px;height:3px;background:var(--brick);margin-bottom:20px}
+  .rule.center{margin-left:auto;margin-right:auto}
+
+  .lead{font-size:1.075rem;color:var(--navy-70);max-width:56ch}
+
+  /* ===== Buttons ===== */
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Inter',sans-serif;font-weight:500;font-size:1rem;
+    padding:14px 28px;border-radius:var(--radius);cursor:pointer;
+    border:1.5px solid transparent;transition:background .15s,color .15s,border-color .15s;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--brick);color:#fff;border-color:var(--brick)}
+  .btn-primary:hover{background:#a92c20;border-color:#a92c20}
+  .btn-secondary{background:transparent;color:var(--navy);border-color:var(--navy)}
+  .btn-secondary:hover{background:var(--navy);color:#fff}
+  .btn-onnavy{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+  .btn-onnavy:hover{background:#fff;color:var(--navy);border-color:#fff}
+
+  /* ===== Header ===== */
+  header{
+    position:sticky;top:0;z-index:50;background:rgba(247,244,239,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--neutral);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:56px}
+  .nav-left{display:flex;align-items:center;gap:14px}
+  .brand img{height:34px;width:auto}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{font-size:.95rem;font-weight:500;color:var(--navy);opacity:.85}
+  .nav-links a:hover{opacity:1;color:var(--brick)}
+  .nav-cta{display:flex;align-items:center;gap:18px}
+  .nav-phone{font-weight:600;font-size:.95rem;white-space:nowrap}
+  .nav-phone span{color:var(--navy-55);font-weight:500}
+  .menu-btn{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  .menu-btn span{display:block;width:22px;height:2px;background:var(--navy);margin:4px 0}
+
+  /* ===== Hero ===== */
+  .hero{padding:72px 0 64px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(2.3rem,4.8vw,3.5rem);margin-bottom:20px}
+  .hero h1 em{color:var(--brick);font-style:normal}
+  .hero .lead{margin-bottom:28px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+  .hero-trust{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.9rem;color:var(--navy-70)}
+  .hero-trust span{display:inline-flex;align-items:center;gap:7px}
+  .check{color:var(--brick);font-weight:700}
+
+  /* ===== Photo placeholders (swap for real work photos) ===== */
+  .ph{
+    position:relative;background:var(--navy);border-radius:var(--radius);
+    overflow:hidden;display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,.55);font-family:'Archivo',sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:.08em;font-size:.7rem;text-align:center;
+    background-image:
+      linear-gradient(135deg,rgba(255,255,255,.04) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.04) 50%,rgba(255,255,255,.04) 75%,transparent 75%,transparent);
+    background-size:22px 22px;
+  }
+  .ph.brick{background-color:var(--brick)}
+  .hero-photo{aspect-ratio:4/3}
+
+  /* ===== Services ===== */
+  .head-center{text-align:center;max-width:640px;margin:0 auto 52px}
+  .head-center .lead{margin:0 auto}
+  .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .service{
+    background:var(--white);border:1px solid var(--neutral);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;
+  }
+  .service .ph{aspect-ratio:16/10;border-radius:0}
+  .service-body{padding:26px 26px 30px}
+  .service h3{font-size:1.35rem;margin-bottom:6px}
+  .service .sub{font-size:.82rem;color:var(--brick);font-weight:600;font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
+  .service ul{list-style:none;font-size:.95rem;color:var(--navy-70)}
+  .service li{padding:5px 0 5px 20px;position:relative}
+  .service li::before{content:"";position:absolute;left:0;top:12px;width:7px;height:7px;background:var(--brick);border-radius:1px}
+
+  /* ===== Work / Portfolio (before-after) ===== */
+  .work{background:var(--navy);color:#fff}
+  .work .kicker{color:#fff}
+  .work .rule{background:var(--brick)}
+  .work .lead{color:rgba(255,255,255,.72)}
+  .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:8px}
+  .project{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);overflow:hidden}
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,.15)}
+  .ba .ph{aspect-ratio:1/1;border-radius:0}
+  .ba-tag{position:absolute;top:10px;left:10px;background:var(--brick);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.08em;padding:4px 9px;border-radius:2px}
+  .ba-tag.before{background:rgba(15,37,68,.85)}
+  .project-cap{padding:18px 22px}
+  .project-cap h3{font-size:1.1rem}
+  .project-cap p{font-size:.9rem;color:rgba(255,255,255,.65);margin-top:4px}
+
+  /* ===== Proof / Why ===== */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px}
+  .stat{background:var(--white);border:1px solid var(--neutral);border-radius:var(--radius);padding:30px 26px;text-align:center}
+  .stat .n{font-family:'Archivo',sans-serif;font-weight:800;font-size:2.4rem;color:var(--navy);line-height:1}
+  .stat .l{font-size:.9rem;color:var(--navy-70);margin-top:10px}
+  .quote{background:var(--white);border:1px solid var(--neutral);border-left:3px solid var(--brick);border-radius:var(--radius);padding:38px 40px;max-width:760px;margin:0 auto}
+  .quote p{font-size:1.25rem;line-height:1.5;font-weight:500}
+  .quote .by{margin-top:18px;font-size:.95rem;color:var(--navy-70)}
+  .quote .by strong{color:var(--navy)}
+
+  /* ===== Process ===== */
+  .process{background:var(--white)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .step{position:relative;padding-top:8px}
+  .step .num{font-family:'Archivo',sans-serif;font-weight:800;font-size:1rem;color:#fff;background:var(--brick);width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .step h3{font-size:1.2rem;margin-bottom:8px}
+  .step p{font-size:.97rem;color:var(--navy-70)}
+
+  /* ===== Build method / phases ===== */
+  .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .phase{background:var(--white);border:1px solid var(--neutral);border-radius:var(--radius);padding:26px 24px}
+  .phase.key{border-color:var(--brick);border-left-width:3px}
+  .phase .pnum{font-family:'Archivo',sans-serif;font-weight:800;font-size:.72rem;letter-spacing:.08em;color:var(--brick);text-transform:uppercase;margin-bottom:10px}
+  .phase h3{font-size:1.12rem;margin-bottom:7px}
+  .phase p{font-size:.94rem;color:var(--navy-70)}
+
+  /* ===== FAQ ===== */
+  .faq-list{max-width:780px;margin:0 auto;border-top:1px solid var(--neutral)}
+  .faq-item{border-bottom:1px solid var(--neutral)}
+  .faq-q{width:100%;text-align:left;background:none;border:0;cursor:pointer;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:'Archivo',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy)}
+  .faq-q .ic{color:var(--brick);font-size:1.4rem;line-height:1;flex-shrink:0;transition:transform .2s}
+  .faq-item.open .faq-q .ic{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease}
+  .faq-a p{padding:0 0 22px;color:var(--navy-70);font-size:1rem;max-width:64ch}
+
+  /* ===== Contact ===== */
+  .contact{background:var(--navy);color:#fff}
+  .contact .kicker{color:#fff}
+  .contact .lead{color:rgba(255,255,255,.75)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .contact-info h2{color:#fff}
+  .contact-line{display:flex;gap:14px;align-items:flex-start;margin-top:26px}
+  .contact-line .ic{color:var(--brick);font-family:'Archivo',sans-serif;font-weight:800;font-size:.7rem;letter-spacing:.06em;padding-top:4px;min-width:64px}
+  .contact-line .v{font-size:1.05rem}
+  .contact-line .v a{font-weight:600}
+  .contact-line .v small{display:block;color:rgba(255,255,255,.6);font-size:.85rem;font-weight:400}
+  .call-big{margin-top:34px}
+
+  form{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:30px}
+  .field{margin-bottom:16px}
+  label{display:block;font-size:.85rem;font-weight:500;margin-bottom:6px;color:rgba(255,255,255,.85)}
+  input,select,textarea{
+    width:100%;font-family:inherit;font-size:1rem;color:var(--navy);
+    background:var(--paper);border:1px solid var(--neutral);border-radius:var(--radius);
+    padding:12px 14px;
+  }
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--brick);outline-offset:1px}
+  textarea{resize:vertical;min-height:96px}
+  form .btn-primary{width:100%;justify-content:center;margin-top:6px}
+  .form-note{font-size:.82rem;color:rgba(255,255,255,.55);margin-top:14px;text-align:center}
+  .form-ok{display:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:var(--radius);padding:26px;text-align:center}
+  .form-ok.show{display:block}
+  .form-ok strong{font-family:'Archivo',sans-serif;font-size:1.2rem}
+
+  /* ===== Footer ===== */
+  footer{background:#0b1c33;color:rgba(255,255,255,.7);padding:56px 0 40px;font-size:.9rem}
+  .foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+  .foot-brand img{height:40px;margin-bottom:16px}
+  .foot-brand p{max-width:34ch}
+  .foot-col h4{font-family:'Archivo',sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#fff;margin-bottom:12px}
+  .foot-col a{display:block;padding:3px 0;color:rgba(255,255,255,.7)}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:rgba(255,255,255,.5)}
+
+  /* ===== Responsive ===== */
+  @media (max-width:900px){
+    section{padding:64px 0}
+    .hero-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
+    .hero-photo{order:-1}
+    .services-grid,.work-grid,.stats,.steps,.phases{grid-template-columns:1fr}
+    .nav-links,.nav-phone{display:none}
+    .menu-btn{display:block}
+    .brand img{height:26px}
+    .nav.open .nav-links{
+      display:flex;flex-direction:column;position:absolute;top:56px;left:0;right:0;
+      background:var(--paper);border-bottom:1px solid var(--neutral);padding:20px 24px;gap:16px;align-items:flex-start;
+    }
+    .stats{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (max-width:560px){
+    .stats{grid-template-columns:1fr}
+    .hero-actions .btn{flex:1;justify-content:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap">
+    <div class="nav" id="nav">
+      <div class="nav-left">
+        <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <a class="brand" href="#top" aria-label="WV Services home">
+          <img src="img/wv-header.png" alt="WV Services">
+        </a>
+      </div>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#work">Our Work</a>
+        <a href="#why">Why Us</a>
+        <a href="#process">How It Works</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="nav-phone" href="tel:+15088187005"><span>Call</span> (508) 818-7005</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="kicker">General Contractor · Boston, MA</span>
+        <h1>Remodeling and repairs, done <em>right the first time</em>.</h1>
+        <p class="lead">Kitchen and bathroom remodeling — and full general contracting — across Boston, Cambridge, Newton and Greater Boston. The same careful work our neighbors have trusted for years — now taking new clients.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Get a free estimate</a>
+          <a class="btn btn-secondary" href="tel:+15088187005">Call (508) 818-7005</a>
+        </div>
+        <div class="hero-trust">
+          <span><span class="check">✓</span> Licensed &amp; insured</span>
+          <span><span class="check">✓</span> Free on-site estimates</span>
+          <span><span class="check">✓</span> Boston · Cambridge · Newton</span>
+        </div>
+      </div>
+      <div class="hero-photo ph">Hero photo — real project<br>(swap in <code>img/</code>)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="wrap">
+    <div class="head-center">
+      <div class="rule center"></div>
+      <span class="kicker">What we do</span>
+      <h2>Kitchen and bath specialists — full-service contractor</h2>
+      <p class="lead">Remodeling kitchens and bathrooms is what we do most. But we're a complete general contractor — from a single repair to a full renovation.</p>
+    </div>
+    <div class="services-grid">
+
+      <article class="service">
+        <div class="ph">Kitchen photo</div>
+        <div class="service-body">
+          <h3>Kitchen Remodeling</h3>
+          <div class="sub">Our specialty</div>
+          <ul>
+            <li>Custom &amp; stock cabinets</li>
+            <li>Quartz, granite &amp; marble countertops</li>
+            <li>Backsplash, tile &amp; flooring</li>
+            <li>Islands, sinks &amp; appliances</li>
+            <li>Full kitchen remodels</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="service">
+        <div class="ph">Bathroom photo</div>
+        <div class="service-body">
+          <h3>Bathroom Remodeling</h3>
+          <div class="sub">Our specialty</div>
+          <ul>
+            <li>Full demo &amp; rebuild</li>
+            <li>Waterproofing &amp; tile</li>
+            <li>Tub-to-shower conversions</li>
+            <li>Vanities, fixtures &amp; glass doors</li>
+            <li>Plumbing &amp; electrical updates</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="service">
+        <div class="ph">Renovation photo</div>
+        <div class="service-body">
+          <h3>General Contracting</h3>
+          <div class="sub">Build &amp; renovate</div>
+          <ul>
+            <li>Full home renovations</li>
+            <li>Additions &amp; basement finishing</li>
+            <li>Framing &amp; structural work</li>
+            <li>New construction</li>
+            <li>Permits &amp; project management</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="service">
+        <div class="ph">Maintenance photo</div>
+        <div class="service-body">
+          <h3>Maintenance &amp; Repairs</h3>
+          <div class="sub">Keep it running</div>
+          <ul>
+            <li>Interior &amp; exterior painting</li>
+            <li>Carpentry, trim &amp; doors</li>
+            <li>Cabinets &amp; custom closets</li>
+            <li>Electrical &amp; general repairs</li>
+            <li>Property maintenance</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK / BEFORE-AFTER ============ -->
+<section id="work" class="work">
+  <div class="wrap">
+    <div class="rule"></div>
+    <span class="kicker">Our work</span>
+    <h2>Before &amp; after</h2>
+    <p class="lead">The best proof isn't a promise — it's the finished job. A few recent projects around Boston.</p>
+    <div class="work-grid">
+
+      <article class="project">
+        <div class="ba">
+          <div class="ph"><span class="ba-tag before">Before</span>Before photo</div>
+          <div class="ph brick"><span class="ba-tag">After</span>After photo</div>
+        </div>
+        <div class="project-cap">
+          <h3>Full kitchen remodel</h3>
+          <p>Cabinets, countertops, backsplash and flooring — Boston, MA</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="ba">
+          <div class="ph"><span class="ba-tag before">Before</span>Before photo</div>
+          <div class="ph brick"><span class="ba-tag">After</span>After photo</div>
+        </div>
+        <div class="project-cap">
+          <h3>Bathroom renovation</h3>
+          <p>New tile, vanity and fixtures — surrounding town</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY / PROOF ============ -->
+<section id="why">
+  <div class="wrap">
+    <div class="head-center">
+      <div class="rule center"></div>
+      <span class="kicker">Why WV Services</span>
+      <h2>Built on referrals for a reason</h2>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">Licensed<br>&amp; Insured</div><div class="l">Fully covered on every job <br><em>[license # to confirm]</em></div></div>
+      <div class="stat"><div class="n">[X]+</div><div class="l">Years serving Boston homeowners</div></div>
+      <div class="stat"><div class="n">Free</div><div class="l">On-site estimates, no obligation</div></div>
+    </div>
+    <blockquote class="quote">
+      <p>“They took care of everything — from demolishing the old kitchen to designing and building the new one. The whole process was smooth and the result speaks for itself.”</p>
+      <div class="by"><strong>Michael Weymouth</strong> · Full kitchen remodel</div>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section id="process" class="process">
+  <div class="wrap">
+    <div class="rule"></div>
+    <span class="kicker">How it works</span>
+    <h2>Three steps, no surprises</h2>
+    <div class="steps" style="margin-top:44px">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Call or request an estimate</h3>
+        <p>Tell us what you need. We'll set up a time that works for you — usually within a few days.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Free on-site assessment</h3>
+        <p>We come to your home, look at the job in person, and answer your questions. No charge, no pressure.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Clear quote &amp; timeline</h3>
+        <p>You get a written estimate with scope and schedule up front — so you know exactly what to expect.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUILD METHOD / PROCESS ============ -->
+<section id="method">
+  <div class="wrap">
+    <div class="head-center">
+      <div class="rule center"></div>
+      <span class="kicker">Our process</span>
+      <h2>How a remodel actually goes</h2>
+      <p class="lead">No shortcuts and no guesswork. Every kitchen and bathroom follows the same proven sequence — so the work holds up for years, not months.</p>
+    </div>
+    <div class="phases">
+      <div class="phase">
+        <div class="pnum">Phase 01</div>
+        <h3>Design &amp; estimate</h3>
+        <p>We plan the layout, help you choose materials, and lock the scope and price before anything starts.</p>
+      </div>
+      <div class="phase">
+        <div class="pnum">Phase 02</div>
+        <h3>Protect &amp; demo</h3>
+        <p>We cover the rest of your home, remove the old kitchen or bath, and haul away every bit of debris.</p>
+      </div>
+      <div class="phase">
+        <div class="pnum">Phase 03</div>
+        <h3>Rough-in</h3>
+        <p>Plumbing, electrical, framing and any structural work — done right behind the walls before we close them up.</p>
+      </div>
+      <div class="phase key">
+        <div class="pnum">Phase 04</div>
+        <h3>Waterproof &amp; tile</h3>
+        <p>Cement board, full waterproofing, then tile. This is the step that keeps a bathroom from ever leaking — and where cheaper crews cut corners. We don't.</p>
+      </div>
+      <div class="phase">
+        <div class="pnum">Phase 05</div>
+        <h3>Install</h3>
+        <p>Cabinets, countertops, fixtures, appliances and lighting go in — measured, level and built to last.</p>
+      </div>
+      <div class="phase">
+        <div class="pnum">Phase 06</div>
+        <h3>Finish &amp; walk-through</h3>
+        <p>Trim, paint, caulk and a full cleanup — then we walk the finished job with you before we call it done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="head-center">
+      <div class="rule center"></div>
+      <span class="kicker">Questions</span>
+      <h2>Good to know before you call</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Are you licensed and insured?<span class="ic">+</span></button>
+        <div class="faq-a"><p>Yes. WV Services is fully licensed and insured for residential work in Massachusetts. We're happy to share our details before any job starts.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What areas do you serve?<span class="ic">+</span></button>
+        <div class="faq-a"><p>Boston, Cambridge, Newton and the surrounding Greater Boston towns. If you're not sure whether you're in our area, just call — we'll let you know.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you charge for estimates?<span class="ic">+</span></button>
+        <div class="faq-a"><p>No. On-site estimates are always free and come with no obligation. We'll look at the job, talk through your options, and give you a clear quote.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you take on small jobs, or only full remodels?<span class="ic">+</span></button>
+        <div class="faq-a"><p>Both. Whether it's a single repair or a full kitchen or bathroom remodel, we're glad to help — same crew and same standard either way.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How soon can you start?<span class="ic">+</span></button>
+        <div class="faq-a"><p>It depends on the size of the job and our current schedule, but we'll give you a realistic timeline in your estimate — never a vague promise.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="rule"></div>
+        <span class="kicker">Get in touch</span>
+        <h2>Request your free estimate</h2>
+        <p class="lead">Tell us what you're planning. We'll get back to you to set up a free on-site visit.</p>
+
+        <div class="contact-line">
+          <div class="ic">Phone</div>
+          <div class="v"><a href="tel:+15088187005">(508) 818-7005</a><small>Call or text — fastest way to reach us</small></div>
+        </div>
+        <div class="contact-line">
+          <div class="ic">Email</div>
+          <div class="v"><a href="mailto:wcorradi96@gmail.com">wcorradi96@gmail.com</a></div>
+        </div>
+        <div class="contact-line">
+          <div class="ic">Area</div>
+          <div class="v">Boston, Cambridge, Newton &amp; Greater Boston</div>
+        </div>
+
+        <a class="btn btn-onnavy call-big" href="tel:+15088187005">Or just call now →</a>
+      </div>
+
+      <div>
+        <form id="estimateForm" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+          </div>
+          <div class="field">
+            <label for="service">What do you need?</label>
+            <select id="service" name="service">
+              <option>Kitchen</option>
+              <option>Bathroom</option>
+              <option>Interior work</option>
+              <option>Exterior work</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Tell us about the project <span style="opacity:.6">(optional)</span></label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Request free estimate</button>
+          <p class="form-note">We'll never share your information. No spam — just a call back.</p>
+        </form>
+        <div class="form-ok" id="formOk">
+          <strong>Thanks — we got it.</strong>
+          <p style="color:rgba(255,255,255,.75);margin-top:8px">We'll reach out shortly to set up your free on-site estimate. Need us sooner? Call <a href="tel:+15088187005" style="color:#fff;font-weight:600">(508) 818-7005</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="img/wv-logo-horizontal-branco.svg" alt="WV Services — General Contractor, Boston MA">
+        <p>Careful remodeling and repairs for homes across Boston and the surrounding towns.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <a href="#services">Kitchen</a>
+        <a href="#services">Bathroom</a>
+        <a href="#services">Interior</a>
+        <a href="#services">Exteriors</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="#work">Our Work</a>
+        <a href="#why">Why Us</a>
+        <a href="#process">How It Works</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="tel:+15088187005">(508) 818-7005</a>
+        <a href="mailto:wcorradi96@gmail.com">wcorradi96@gmail.com</a>
+        <a href="#contact">Free estimate</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> WV Services · Boston, MA · Licensed &amp; Insured</span>
+      <span>General Contractor</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  var nav = document.getElementById('nav');
+  var menuBtn = document.getElementById('menuBtn');
+  menuBtn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('.nav-links a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      var open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!open){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+    });
+  });
+
+  // Form — front-end stub. TODO: wire to a real endpoint (Formspree / email / painel).
+  var form = document.getElementById('estimateForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.name.value.trim() || !form.phone.value.trim()){
+      form.reportValidity && form.reportValidity();
+      if(!form.name.value.trim()){ form.name.focus(); return; }
+      if(!form.phone.value.trim()){ form.phone.focus(); return; }
+    }
+    form.style.display = 'none';
+    document.getElementById('formOk').classList.add('show');
+  });
+</script>
+
+</body>
+</html>

@@ -15,15 +15,15 @@ Projeto próprio da empresa (em construção)
 
 ## Estado
 
-🔨 **Não iniciado.** Identidade visual e logo prontas; conteúdo em coleta.
+🔨 **Em construção — estrutura v1 montada (31/07/2026).** `site/index.html` single-file com
+todas as seções (hero, serviços em 4 frentes, antes/depois, provas, processo de obra, FAQ,
+contato) e placeholders no lugar das fotos.
 
-Bloqueios pra começar:
+Bloqueios pra fechar:
 - [ ] Fotos de obra real (`dados/fotos/` na raiz) — sem elas o site não fecha
-- [ ] Respostas do Wellington (`_memoria/perguntas-wellington.md`) — serviços exatos,
-      cidades atendidas, anos de operação, licença e seguradora
-
-O que **não** bloqueia: estrutura, layout e componentes podem ser montados com
-placeholder enquanto o material real não chega.
+- [x] Cidades atendidas — Boston, Cambridge, Newton + Grande Boston (respondido 31/07)
+- [ ] Restante das respostas do Wellington — licença/seguradora, anos de operação, casos concretos
+- [ ] Destino do formulário (hoje é stub front-end) e email de domínio (hoje Gmail pessoal)
 
 ## Onde salvar o que
 
