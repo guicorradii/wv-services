@@ -120,7 +120,9 @@
     background-size:22px 22px;
   }
   .ph.brick{background-color:var(--brick)}
-  .hero-photo{aspect-ratio:4/3}
+  /* Real work photos — object-fit cover keeps framing on any crop */
+  .hero-photo{aspect-ratio:4/3;width:100%;object-fit:cover;border-radius:var(--radius)}
+  .service-photo{aspect-ratio:16/10;width:100%;object-fit:cover;display:block}
 
   /* ===== Services ===== */
   .head-center{text-align:center;max-width:640px;margin:0 auto 52px}
@@ -138,20 +140,16 @@
   .service li{padding:5px 0 5px 20px;position:relative}
   .service li::before{content:"";position:absolute;left:0;top:12px;width:7px;height:7px;background:var(--brick);border-radius:1px}
 
-  /* ===== Work / Portfolio (before-after) ===== */
+  /* ===== Work / Portfolio (finished-work gallery) ===== */
   .work{background:var(--navy);color:#fff}
   .work .kicker{color:#fff}
   .work .rule{background:var(--brick)}
   .work .lead{color:rgba(255,255,255,.72)}
-  .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:8px}
-  .project{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);overflow:hidden}
-  .ba{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,.15)}
-  .ba .ph{aspect-ratio:1/1;border-radius:0}
-  .ba-tag{position:absolute;top:10px;left:10px;background:var(--brick);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.08em;padding:4px 9px;border-radius:2px}
-  .ba-tag.before{background:rgba(15,37,68,.85)}
-  .project-cap{padding:18px 22px}
-  .project-cap h3{font-size:1.1rem}
-  .project-cap p{font-size:.9rem;color:rgba(255,255,255,.65);margin-top:4px}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
+  .gcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);overflow:hidden}
+  .gcard img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .gcard figcaption{padding:15px 18px;font-size:.88rem;color:rgba(255,255,255,.66)}
+  .gcard figcaption strong{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.98rem;color:#fff;letter-spacing:-.01em;margin-bottom:3px}
 
   /* ===== Proof / Why ===== */
   .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px}
@@ -232,7 +230,8 @@
     section{padding:64px 0}
     .hero-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
     .hero-photo{order:-1}
-    .services-grid,.work-grid,.stats,.steps,.phases{grid-template-columns:1fr}
+    .services-grid,.stats,.steps,.phases{grid-template-columns:1fr}
+    .gallery{grid-template-columns:repeat(2,1fr);gap:16px}
     .nav-links,.nav-phone{display:none}
     .menu-btn{display:block}
     .brand img{height:26px}
@@ -244,6 +243,7 @@
   }
   @media (max-width:560px){
     .stats{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr}
     .hero-actions .btn{flex:1;justify-content:center}
   }
 </style>
@@ -294,7 +294,7 @@
           <span><span class="check">✓</span> Boston · Cambridge · Newton</span>
         </div>
       </div>
-      <div class="hero-photo ph">Hero photo — real project<br>(swap in <code>img/</code>)</div>
+      <img class="hero-photo" src="img/hero.jpg" alt="Kitchen remodeled by WV Services — custom cabinets, quartzite island and professional range" width="800" height="600" loading="eager" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -311,7 +311,7 @@
     <div class="services-grid">
 
       <article class="service">
-        <div class="ph">Kitchen photo</div>
+        <img class="service-photo" src="img/service-kitchen.jpg" alt="Custom kitchen remodel with maple cabinets and stone countertops" width="640" height="400" loading="lazy">
         <div class="service-body">
           <h3>Kitchen Remodeling</h3>
           <div class="sub">Our specialty</div>
@@ -326,7 +326,7 @@
       </article>
 
       <article class="service">
-        <div class="ph">Bathroom photo</div>
+        <img class="service-photo" src="img/service-bathroom.jpg" alt="Bathroom remodel with marble tile shower and tub" width="640" height="400" loading="lazy">
         <div class="service-body">
           <h3>Bathroom Remodeling</h3>
           <div class="sub">Our specialty</div>
@@ -341,7 +341,7 @@
       </article>
 
       <article class="service">
-        <div class="ph">Renovation photo</div>
+        <img class="service-photo" src="img/service-gc.jpg" alt="Full room renovation with vaulted ceiling and exposed beam work" width="640" height="400" loading="lazy">
         <div class="service-body">
           <h3>General Contracting</h3>
           <div class="sub">Build &amp; renovate</div>
@@ -356,7 +356,7 @@
       </article>
 
       <article class="service">
-        <div class="ph">Maintenance photo</div>
+        <img class="service-photo" src="img/service-maintenance.jpg" alt="Exterior repaint and trim work on a Greater Boston home" width="640" height="400" loading="lazy">
         <div class="service-body">
           <h3>Maintenance &amp; Repairs</h3>
           <div class="sub">Keep it running</div>
@@ -379,31 +379,39 @@
   <div class="wrap">
     <div class="rule"></div>
     <span class="kicker">Our work</span>
-    <h2>Before &amp; after</h2>
-    <p class="lead">The best proof isn't a promise — it's the finished job. A few recent projects around Boston.</p>
-    <div class="work-grid">
+    <h2>Recent work around Boston</h2>
+    <p class="lead">The best proof isn't a promise — it's the finished job. A few projects from homes across Greater Boston.</p>
+    <div class="gallery">
 
-      <article class="project">
-        <div class="ba">
-          <div class="ph"><span class="ba-tag before">Before</span>Before photo</div>
-          <div class="ph brick"><span class="ba-tag">After</span>After photo</div>
-        </div>
-        <div class="project-cap">
-          <h3>Full kitchen remodel</h3>
-          <p>Cabinets, countertops, backsplash and flooring — Boston, MA</p>
-        </div>
-      </article>
+      <figure class="gcard">
+        <img src="img/work-kitchen.jpg" alt="Open-plan kitchen remodel with island and quartzite countertops" width="640" height="480" loading="lazy">
+        <figcaption><strong>Full kitchen remodel</strong>Cabinets, countertops, backsplash and flooring</figcaption>
+      </figure>
 
-      <article class="project">
-        <div class="ba">
-          <div class="ph"><span class="ba-tag before">Before</span>Before photo</div>
-          <div class="ph brick"><span class="ba-tag">After</span>After photo</div>
-        </div>
-        <div class="project-cap">
-          <h3>Bathroom renovation</h3>
-          <p>New tile, vanity and fixtures — surrounding town</p>
-        </div>
-      </article>
+      <figure class="gcard">
+        <img src="img/work-shower.jpg" alt="Custom tiled walk-in shower with body jets and stone floor" width="640" height="480" loading="lazy">
+        <figcaption><strong>Custom walk-in shower</strong>Full tile, body jets and glass-tile floor</figcaption>
+      </figure>
+
+      <figure class="gcard">
+        <img src="img/work-tile.jpg" alt="Bathroom shower with mosaic tile feature wall" width="640" height="480" loading="lazy">
+        <figcaption><strong>Bathroom tilework</strong>Mosaic feature wall and waterproofed surround</figcaption>
+      </figure>
+
+      <figure class="gcard">
+        <img src="img/work-carpentry.jpg" alt="Custom built-in mahogany bar cabinet with glass doors and wine storage" width="640" height="480" loading="lazy">
+        <figcaption><strong>Built-in cabinetry</strong>Custom mahogany bar with wine storage</figcaption>
+      </figure>
+
+      <figure class="gcard">
+        <img src="img/work-interior.jpg" alt="Refinished hardwood hallway and interior trim" width="640" height="480" loading="lazy">
+        <figcaption><strong>Interior finish work</strong>Hardwood flooring, trim and paint</figcaption>
+      </figure>
+
+      <figure class="gcard">
+        <img src="img/work-deck.jpg" alt="Rebuilt mahogany deck with white turned railing" width="640" height="480" loading="lazy">
+        <figcaption><strong>Deck &amp; exterior</strong>Mahogany decking and restored railing</figcaption>
+      </figure>
 
     </div>
   </div>

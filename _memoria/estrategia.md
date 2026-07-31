@@ -40,9 +40,13 @@ antes/depois como peça central, pedir ao Wellington as fotos "antes") e **exter
 fotos** (se o site reivindicar siding/trabalho externo, pedir mais).
 
 **Estado em 31/07/2026:** estrutura v1 do site já montada — `projetos/Site-WV-Services/site/index.html`,
-single-file, todas as seções (hero, serviços, antes/depois, provas, processo de obra, FAQ, contato),
-com placeholders no lugar das fotos. Falta trocar foto e preencher dados do Wellington
-(licença, anos, cidades já resolvidas).
+single-file, todas as seções (hero, serviços, provas, processo de obra, FAQ, contato).
+
+**Fotos aplicadas (31/07/2026):** 11 fotos de obra reais selecionadas do acervo, otimizadas pra web
+(máx 1600px, JPEG) em `site/img/` — hero (cozinha high-end), 4 cards de serviço e galeria de 6 obras.
+Como não há par antes/depois no acervo, a seção "Our Work" foi montada como **galeria de trabalho
+concluído**, não before/after — trocar por antes/depois real quando o Wellington mandar as "antes".
+Falta só preencher dados do Wellington (licença, anos) e o destino do formulário.
 
 ## O que pode esperar
 

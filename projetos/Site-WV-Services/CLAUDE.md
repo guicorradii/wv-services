@@ -20,10 +20,12 @@ todas as seções (hero, serviços em 4 frentes, antes/depois, provas, processo 
 contato) e placeholders no lugar das fotos.
 
 Bloqueios pra fechar:
-- [ ] Fotos de obra real (`dados/fotos/` na raiz) — sem elas o site não fecha
+- [x] Fotos de obra real — 11 fotos aplicadas em hero, cards e galeria (31/07). Otimizadas em `site/img/`
 - [x] Cidades atendidas — Boston, Cambridge, Newton + Grande Boston (respondido 31/07)
 - [ ] Restante das respostas do Wellington — licença/seguradora, anos de operação, casos concretos
 - [ ] Destino do formulário (hoje é stub front-end) e email de domínio (hoje Gmail pessoal)
+- [ ] Fotos "antes" — o acervo é 100% "depois". A seção "Our Work" virou galeria de obra
+      concluída; monta antes/depois de verdade quando o Wellington mandar as fotos "antes"
 
 ## Onde salvar o que
 
