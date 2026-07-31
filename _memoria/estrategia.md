@@ -29,8 +29,15 @@ adesivo ou bordado.
 
 ### O que bloqueia o site
 
-**Fotos de obra real.** Estrutura e layout podem ser montados com placeholder, mas nenhuma
-peça fecha sem elas. Pedido no roteiro de `_memoria/perguntas-wellington.md`.
+**Fotos de obra real — RESOLVIDO PARCIALMENTE (31/07/2026).** O Wellington mandou o export
+de mídia do Wix (372 arquivos, cheio de duplicata e placeholder). Filtrado e organizado em
+`dados/fotos/` — **62 fotos únicas** em alta resolução, categorizadas: banheiro (27),
+interior (9), armários/marcenaria (8), cozinha (7), lavanderia (5), escadas (4), exterior (2).
+Índice em `dados/fotos/README.md`.
+
+Duas lacunas que seguem: **não há par antes/depois** (todas são "depois" — a identidade pede
+antes/depois como peça central, pedir ao Wellington as fotos "antes") e **exterior tem só 2
+fotos** (se o site reivindicar siding/trabalho externo, pedir mais).
 
 **Estado em 31/07/2026:** estrutura v1 do site já montada — `projetos/Site-WV-Services/site/index.html`,
 single-file, todas as seções (hero, serviços, antes/depois, provas, processo de obra, FAQ, contato),
