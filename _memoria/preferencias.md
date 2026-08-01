@@ -32,3 +32,4 @@ Profissionalismo sem frieza. O reposicionamento existe pra a empresa parecer sé
 
 - Todo material de cliente final sai em inglês (EUA)
 - Considerar o fuso: o Wellington está 1h atrás do horário do Brasil
+- **Revisão de cópia em português (01/08/2026):** o Guilherme revisa a cópia em PT. Ao propor ou alterar texto de cliente, sempre mostrar o significado em português + o texto final em inglês que entra no site.

@@ -52,7 +52,7 @@
   h3{font-weight:700}
 
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  section{padding:88px 0}
+  section{padding:72px 0;scroll-margin-top:72px}
 
   /* Kicker label — Archivo caps, wide tracking */
   .kicker{
@@ -98,16 +98,58 @@
   .menu-btn{display:none;background:none;border:0;cursor:pointer;padding:8px}
   .menu-btn span{display:block;width:22px;height:2px;background:var(--navy);margin:4px 0}
 
-  /* ===== Hero ===== */
-  .hero{padding:72px 0 64px}
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-  .hero h1{font-size:clamp(2.3rem,4.8vw,3.5rem);margin-bottom:20px}
+  /* ===== Hero (paper background — copy + photo carousel) ===== */
+  .hero{padding:32px 0 40px}
+  /* Desktop: copy stacked on the left (intro over CTA), carousel spanning the right */
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr .95fr;column-gap:56px;align-items:center;
+    grid-template-areas:"intro carousel" "cta carousel";
+  }
+  .hero-intro{grid-area:intro}
+  .hero-cta{grid-area:cta}
+  .hero h1{font-size:clamp(2.2rem,4.6vw,3.3rem);margin-bottom:12px}
   .hero h1 em{color:var(--brick);font-style:normal}
-  .hero .lead{margin-bottom:28px}
-  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+  .hero .lead{margin-bottom:16px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px}
   .hero-trust{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.9rem;color:var(--navy-70)}
   .hero-trust span{display:inline-flex;align-items:center;gap:7px}
   .check{color:var(--brick);font-weight:700}
+  /* Kicker + location line above the headline */
+  .hero-intro .kicker{margin-bottom:6px}
+  .hero-loc{display:flex;align-items:center;gap:6px;font-size:.92rem;font-weight:500;color:var(--navy-70);margin-bottom:14px}
+  .hero-loc svg{width:15px;height:15px;flex:none;color:var(--brick)}
+
+  /* Hero carousel — peek gallery: active photo full, a sliver of the next showing */
+  .hero-carousel{grid-area:carousel;align-self:center;position:relative;padding-bottom:26px}
+  .hc-viewport{position:relative;aspect-ratio:5/4;overflow:hidden;border-radius:var(--radius)}
+  .hc-track{display:flex;height:100%;gap:14px;transition:transform .45s ease}
+  .hc-slide{
+    position:relative;flex:0 0 82%;height:100%;margin:0;
+    border-radius:var(--radius);overflow:hidden;background:var(--navy);
+    transition:opacity .35s ease;
+  }
+  .hc-slide:not(.is-active){opacity:.5}
+  .hc-slide img{width:100%;height:100%;object-fit:cover;display:block}
+  .hc-cap{
+    position:absolute;left:0;bottom:0;z-index:2;background:rgba(15,37,68,.86);color:#fff;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:.68rem;text-transform:uppercase;
+    letter-spacing:.08em;padding:8px 14px;border-top-right-radius:var(--radius);
+  }
+  .hc-btn{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:40px;height:40px;
+    border:0;border-radius:50%;background:rgba(255,255,255,.92);color:var(--navy);cursor:pointer;
+    font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 1px 6px rgba(15,37,68,.25);transition:background .15s;
+  }
+  .hc-btn:hover{background:#fff}
+  .hc-prev{left:12px}
+  .hc-next{right:12px}
+  .hc-dots{position:absolute;bottom:0;left:2px;z-index:3;display:flex;gap:7px}
+  .hc-dots button{
+    width:8px;height:8px;padding:0;border:0;border-radius:50%;
+    background:var(--neutral);cursor:pointer;transition:background .15s;
+  }
+  .hc-dots button.is-active{background:var(--brick)}
 
   /* ===== Photo placeholders (swap for real work photos) ===== */
   .ph{
@@ -121,7 +163,6 @@
   }
   .ph.brick{background-color:var(--brick)}
   /* Real work photos — object-fit cover keeps framing on any crop */
-  .hero-photo{aspect-ratio:4/3;width:100%;object-fit:cover;border-radius:var(--radius)}
   .service-photo{aspect-ratio:16/10;width:100%;object-fit:cover;display:block}
 
   /* ===== Services ===== */
@@ -227,9 +268,12 @@
 
   /* ===== Responsive ===== */
   @media (max-width:900px){
-    section{padding:64px 0}
-    .hero-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
-    .hero-photo{order:-1}
+    section{padding:56px 0}
+    .contact-grid{grid-template-columns:1fr;gap:36px}
+    /* Mobile order: intro → carousel → CTA */
+    .hero-grid{grid-template-columns:1fr;grid-template-areas:"intro" "carousel" "cta";gap:28px}
+    /* Wider aspect when stacked full-width on mobile */
+    .hc-viewport{aspect-ratio:4/3}
     .services-grid,.stats,.steps,.phases{grid-template-columns:1fr}
     .gallery{grid-template-columns:repeat(2,1fr);gap:16px}
     .nav-links,.nav-phone{display:none}
@@ -280,10 +324,46 @@
 <section class="hero">
   <div class="wrap">
     <div class="hero-grid">
-      <div class="hero-copy">
-        <span class="kicker">General Contractor · Boston, MA</span>
+      <div class="hero-intro">
+        <span class="kicker">Owner-Operated General Contractor</span>
+        <span class="hero-loc">Boston · Cambridge · Newton
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+        </span>
         <h1>Remodeling and repairs, done <em>right the first time</em>.</h1>
-        <p class="lead">Kitchen and bathroom remodeling — and full general contracting — across Boston, Cambridge, Newton and Greater Boston. The same careful work our neighbors have trusted for years — now taking new clients.</p>
+        <p class="lead">Kitchen and bathroom remodeling and full general contracting. The careful work our neighbors have trusted for years.</p>
+      </div>
+
+      <div class="hero-carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="Recent WV Services projects">
+        <div class="hc-viewport">
+        <div class="hc-track">
+        <figure class="hc-slide is-active">
+          <img src="img/hero.jpg" alt="Kitchen remodel by WV Services — custom cabinets and quartzite island" width="640" height="480" loading="eager" fetchpriority="high">
+          <figcaption class="hc-cap">Kitchen remodel</figcaption>
+        </figure>
+        <figure class="hc-slide">
+          <img src="img/work-shower.jpg" alt="Bathroom and shower remodel by WV Services" width="640" height="480" loading="lazy">
+          <figcaption class="hc-cap">Bathroom remodel</figcaption>
+        </figure>
+        <figure class="hc-slide">
+          <img src="img/work-tile.jpg" alt="Tile installation by WV Services" width="640" height="480" loading="lazy">
+          <figcaption class="hc-cap">Tile work</figcaption>
+        </figure>
+        <figure class="hc-slide">
+          <img src="img/work-carpentry.jpg" alt="Custom carpentry and cabinets by WV Services" width="640" height="480" loading="lazy">
+          <figcaption class="hc-cap">Custom carpentry</figcaption>
+        </figure>
+        <figure class="hc-slide">
+          <img src="img/work-deck.jpg" alt="Exterior and deck work by WV Services" width="640" height="480" loading="lazy">
+          <figcaption class="hc-cap">Exterior work</figcaption>
+        </figure>
+        </div><!-- /hc-track -->
+        <button class="hc-btn hc-prev" type="button" aria-label="Previous photo">‹</button>
+        <button class="hc-btn hc-next" type="button" aria-label="Next photo">›</button>
+        </div><!-- /hc-viewport -->
+        <div class="hc-dots" aria-label="Choose photo"></div>
+      </div>
+
+      <div class="hero-cta">
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contact">Get a free estimate</a>
           <a class="btn btn-secondary" href="tel:+15088187005">Call (508) 818-7005</a>
@@ -291,10 +371,8 @@
         <div class="hero-trust">
           <span><span class="check">✓</span> Licensed &amp; insured</span>
           <span><span class="check">✓</span> Free on-site estimates</span>
-          <span><span class="check">✓</span> Boston · Cambridge · Newton</span>
         </div>
       </div>
-      <img class="hero-photo" src="img/hero.jpg" alt="Kitchen remodeled by WV Services — custom cabinets, quartzite island and professional range" width="800" height="600" loading="eager" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -650,10 +728,48 @@
   menuBtn.addEventListener('click', function(){
     var open = nav.classList.toggle('open');
     menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    updateHeader();
   });
   nav.querySelectorAll('.nav-links a').forEach(function(a){
     a.addEventListener('click', function(){ nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); });
   });
+
+  // Hero carousel — peek gallery: slides the track, active photo full + next peeking
+  (function(){
+    var car = document.getElementById('heroCarousel');
+    if(!car) return;
+    var viewport = car.querySelector('.hc-viewport');
+    var track = car.querySelector('.hc-track');
+    var slides = [].slice.call(track.querySelectorAll('.hc-slide'));
+    var dotsWrap = car.querySelector('.hc-dots');
+    var GAP = 14, i = 0, timer = null;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    slides.forEach(function(s, idx){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Show photo ' + (idx + 1));
+      if(idx === 0) b.className = 'is-active';
+      b.addEventListener('click', function(){ go(idx); restart(); });
+      dotsWrap.appendChild(b);
+    });
+    var dots = [].slice.call(dotsWrap.children);
+    function go(n, animate){
+      i = (n + slides.length) % slides.length;
+      var step = slides[0].offsetWidth + GAP;
+      var max = Math.max(0, track.scrollWidth - viewport.clientWidth);
+      var shift = Math.min(i * step, max);
+      track.style.transition = animate === false ? 'none' : '';
+      track.style.transform = 'translateX(' + (-shift) + 'px)';
+      slides.forEach(function(s, idx){ s.classList.toggle('is-active', idx === i); });
+      dots.forEach(function(d, idx){ d.classList.toggle('is-active', idx === i); });
+    }
+    function restart(){ if(reduce) return; clearInterval(timer); timer = setInterval(function(){ go(i + 1); }, 4500); }
+    car.querySelector('.hc-next').addEventListener('click', function(){ go(i + 1); restart(); });
+    car.querySelector('.hc-prev').addEventListener('click', function(){ go(i - 1); restart(); });
+    window.addEventListener('resize', function(){ go(i, false); });
+    go(0, false);
+    restart();
+  })();
 
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(function(item){

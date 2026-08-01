@@ -48,9 +48,21 @@ Como não há par antes/depois no acervo, a seção "Our Work" foi montada como 
 concluído**, não before/after — trocar por antes/depois real quando o Wellington mandar as "antes".
 Falta só preencher dados do Wellington (licença, anos) e o destino do formulário.
 
+**Hero refeito (01/08/2026):** depois de várias iterações (foto de fundo full-bleed → descartada por
+não parecer obra real; header transparente → descartado), fechou no formato: fundo claro, duas colunas
+no desktop (texto à esquerda, **carrossel peek** à direita — foto ativa cheia + espiada da próxima),
+e no mobile empilhado na ordem intro → carrossel → botões. Kicker "Owner-Operated General Contractor"
+(diferencial real: o Wellington executa), linha de cidades com pin, lead enxuto. Carrossel com 5 obras
+(cozinha, banheiro, azulejo, marcenaria, exterior). Paddings do site apertados (seções 88→72px).
+
 ## O que pode esperar
 
 Anúncios. Só fazem sentido depois que marca, site e perfil estiverem prontos pra receber o tráfego.
+
+**Site multilíngue (PT/ES) — adiado pra fase 2 (01/08/2026).** Ideia do Guilherme pelo mercado imigrante
+de Boston (brasileiro/hispânico). Decisão: fechar o site em inglês primeiro e **confirmar posicionamento
+com o Wellington** antes de construir — o público que ele declarou é a comunidade americana, e foi por
+isso que o site é 100% inglês. É decisão de posicionamento dele, não só de design.
 
 ## Contexto com prazo
 

@@ -19,6 +19,11 @@ Projeto próprio da empresa (em construção)
 todas as seções (hero, serviços em 4 frentes, antes/depois, provas, processo de obra, FAQ,
 contato) e placeholders no lugar das fotos.
 
+**Hero redesenhado (01/08/2026).** Fundo claro, duas colunas no desktop (texto à esquerda,
+carrossel "peek" à direita — foto ativa cheia + espiada da próxima, 5 obras); no mobile empilha
+intro → carrossel → botões. Kicker "Owner-Operated General Contractor" + linha de cidades com pin.
+Paddings do site apertados (seções 88→72px desktop, 64→56px mobile). Detalhes em `_memoria/estrategia.md`.
+
 Bloqueios pra fechar:
 - [x] Fotos de obra real — 11 fotos aplicadas em hero, cards e galeria (31/07). Otimizadas em `site/img/`
 - [x] Cidades atendidas — Boston, Cambridge, Newton + Grande Boston (respondido 31/07)
