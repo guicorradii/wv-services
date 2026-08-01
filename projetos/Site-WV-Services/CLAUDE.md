@@ -24,6 +24,11 @@ carrossel "peek" à direita — foto ativa cheia + espiada da próxima, 5 obras)
 intro → carrossel → botões. Kicker "Owner-Operated General Contractor" + linha de cidades com pin.
 Paddings do site apertados (seções 88→72px desktop, 64→56px mobile). Detalhes em `_memoria/estrategia.md`.
 
+**Refino responsivo (01/08/2026).** Espaçamentos do hero separados por breakpoint (desktop respira,
+mobile compacto), header 72/56px, logo 28px. Seção "Our services" com cópia enxuta (kicker "Kitchen &
+bath specialists"). Cards de serviço: 4 numa linha no desktop, carrossel deslizável no tablet/celular
+com seta. Animações de scroll-reveal (IntersectionObserver) nos cards/blocos. Detalhes em `_memoria/estrategia.md`.
+
 Bloqueios pra fechar:
 - [x] Fotos de obra real — 11 fotos aplicadas em hero, cards e galeria (31/07). Otimizadas em `site/img/`
 - [x] Cidades atendidas — Boston, Cambridge, Newton + Grande Boston (respondido 31/07)

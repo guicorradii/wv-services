@@ -86,9 +86,9 @@
     position:sticky;top:0;z-index:50;background:rgba(247,244,239,.92);
     backdrop-filter:blur(8px);border-bottom:1px solid var(--neutral);
   }
-  .nav{display:flex;align-items:center;justify-content:space-between;height:56px}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
   .nav-left{display:flex;align-items:center;gap:14px}
-  .brand img{height:34px;width:auto}
+  .brand img{height:28px;width:auto}
   .nav-links{display:flex;align-items:center;gap:30px}
   .nav-links a{font-size:.95rem;font-weight:500;color:var(--navy);opacity:.85}
   .nav-links a:hover{opacity:1;color:var(--brick)}
@@ -99,7 +99,7 @@
   .menu-btn span{display:block;width:22px;height:2px;background:var(--navy);margin:4px 0}
 
   /* ===== Hero (paper background — copy + photo carousel) ===== */
-  .hero{padding:32px 0 40px}
+  .hero{padding:44px 0 12px}
   /* Desktop: copy stacked on the left (intro over CTA), carousel spanning the right */
   .hero-grid{
     display:grid;grid-template-columns:1.05fr .95fr;column-gap:56px;align-items:center;
@@ -111,7 +111,7 @@
   .hero h1 em{color:var(--brick);font-style:normal}
   .hero .lead{margin-bottom:16px}
   .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px}
-  .hero-trust{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.9rem;color:var(--navy-70)}
+  .hero-trust{display:flex;flex-wrap:nowrap;gap:6px 18px;font-size:.9rem;color:var(--navy-70)}
   .hero-trust span{display:inline-flex;align-items:center;gap:7px}
   .check{color:var(--brick);font-weight:700}
   /* Kicker + location line above the headline */
@@ -144,7 +144,7 @@
   .hc-btn:hover{background:#fff}
   .hc-prev{left:12px}
   .hc-next{right:12px}
-  .hc-dots{position:absolute;bottom:0;left:2px;z-index:3;display:flex;gap:7px}
+  .hc-dots{position:absolute;bottom:0;left:0;right:0;z-index:3;display:flex;justify-content:center;gap:7px}
   .hc-dots button{
     width:8px;height:8px;padding:0;border:0;border-radius:50%;
     background:var(--neutral);cursor:pointer;transition:background .15s;
@@ -163,18 +163,30 @@
   }
   .ph.brick{background-color:var(--brick)}
   /* Real work photos — object-fit cover keeps framing on any crop */
-  .service-photo{aspect-ratio:16/10;width:100%;object-fit:cover;display:block}
+  .service-photo{aspect-ratio:2/1;width:100%;object-fit:cover;display:block}
 
   /* ===== Services ===== */
   .head-center{text-align:center;max-width:640px;margin:0 auto 52px}
+  #services .head-center{margin-bottom:28px}
   .head-center .lead{margin:0 auto}
-  .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  /* Desktop: all four services in one row. Carousel kicks in on tablet/phone. */
+  .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .services-carousel{position:relative}
+  /* Advance arrow — only shown when the grid becomes a carousel (tablet/phone) */
+  .svc-next{
+    display:none;align-items:center;justify-content:center;
+    position:absolute;right:6px;top:28%;transform:translateY(-50%);
+    z-index:4;width:44px;height:44px;padding:0;border:0;border-radius:50%;
+    background:rgba(255,255,255,.94);color:var(--navy);cursor:pointer;
+    font-size:1.7rem;line-height:1;box-shadow:0 1px 8px rgba(15,37,68,.28);transition:background .15s;
+  }
+  .svc-next:hover{background:#fff}
   .service{
     background:var(--white);border:1px solid var(--neutral);border-radius:var(--radius);
     overflow:hidden;display:flex;flex-direction:column;
   }
   .service .ph{aspect-ratio:16/10;border-radius:0}
-  .service-body{padding:26px 26px 30px}
+  .service-body{padding:20px 24px 22px}
   .service h3{font-size:1.35rem;margin-bottom:6px}
   .service .sub{font-size:.82rem;color:var(--brick);font-weight:600;font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
   .service ul{list-style:none;font-size:.95rem;color:var(--navy-70)}
@@ -266,16 +278,38 @@
   .foot-col a:hover{color:#fff}
   .foot-bottom{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:rgba(255,255,255,.5)}
 
+  /* ===== Scroll reveal ===== */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.6,.2,1)}
+  .reveal.is-visible{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1 !important;transform:none !important;transition:none !important}
+  }
+
   /* ===== Responsive ===== */
   @media (max-width:900px){
     section{padding:56px 0}
     .contact-grid{grid-template-columns:1fr;gap:36px}
     /* Mobile order: intro → carousel → CTA */
-    .hero-grid{grid-template-columns:1fr;grid-template-areas:"intro" "carousel" "cta";gap:28px}
-    /* Wider aspect when stacked full-width on mobile */
-    .hc-viewport{aspect-ratio:4/3}
-    .services-grid,.stats,.steps,.phases{grid-template-columns:1fr}
+    /* Compact hero on mobile/tablet — desktop keeps its breathing room */
+    .hero{padding:16px 0 20px}
+    .hero-grid{grid-template-columns:1fr;grid-template-areas:"intro" "carousel" "cta";gap:16px}
+    /* Stacked: cap width and flatten the carousel so the CTA reaches the first screen */
+    .hero-carousel{max-width:420px;width:100%;margin:0 auto}
+    .hc-viewport{aspect-ratio:16/10}
+    .stats,.steps,.phases{grid-template-columns:1fr}
+    /* Tablet/phone: services become a swipeable carousel (~2 cards on tablet) */
+    .services-grid{
+      display:flex;gap:16px;overflow-x:auto;overscroll-behavior-x:contain;
+      scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+      scrollbar-width:none;padding-bottom:14px;
+    }
+    .services-grid::-webkit-scrollbar{display:none}
+    .service{flex:0 0 46%;scroll-snap-align:start}
+    .svc-next{display:flex}
+    /* Center the trust badges under the buttons when stacked */
+    .hero-trust{justify-content:center}
     .gallery{grid-template-columns:repeat(2,1fr);gap:16px}
+    .nav{height:56px}
     .nav-links,.nav-phone{display:none}
     .menu-btn{display:block}
     .brand img{height:26px}
@@ -289,6 +323,34 @@
     .stats{grid-template-columns:1fr}
     .gallery{grid-template-columns:1fr}
     .hero-actions .btn{flex:1;justify-content:center}
+    /* Tighter type on phones so the CTA clears the fold */
+    .hero h1{font-size:1.85rem;margin-bottom:10px}
+    .hero .lead{font-size:1rem}
+    .hero-carousel{max-width:340px}
+    .hero-trust{font-size:.82rem;gap:6px 14px}
+    /* Phones: swipeable service carousel instead of a stacked 2×2 grid */
+    .services-grid{
+      display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;margin:0 -24px;padding:0 24px 10px;
+      scroll-padding:0 24px;
+    }
+    .services-grid::-webkit-scrollbar{display:none}
+    .service{flex:0 0 80%;scroll-snap-align:start}
+    /* Shorter, focused crop */
+    .service-photo{aspect-ratio:3/2;object-position:center}
+    .service-body{padding:18px 18px 22px}
+    .service h3{font-size:1.15rem}
+    .service .sub{font-size:.74rem;margin-bottom:11px}
+    .service ul{font-size:.9rem}
+    .service li{padding:5px 0 5px 18px}
+    /* Swipe arrow, vertically centered over the card photo (photo = card width × 2/3) */
+    .svc-next{
+      display:flex;align-items:center;justify-content:center;
+      position:absolute;right:6px;top:calc((100vw - 48px) * .8 / 3);transform:translateY(-50%);
+      z-index:4;width:40px;height:40px;padding:0;border:0;border-radius:50%;
+      background:rgba(255,255,255,.94);color:var(--navy);cursor:pointer;
+      font-size:1.6rem;line-height:1;box-shadow:0 1px 6px rgba(15,37,68,.28);
+    }
   }
 </style>
 </head>
@@ -382,10 +444,11 @@
   <div class="wrap">
     <div class="head-center">
       <div class="rule center"></div>
-      <span class="kicker">What we do</span>
-      <h2>Kitchen and bath specialists — full-service contractor</h2>
-      <p class="lead">Remodeling kitchens and bathrooms is what we do most. But we're a complete general contractor — from a single repair to a full renovation.</p>
+      <span class="kicker">Kitchen &amp; bath specialists</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2rem);margin-bottom:12px">Our services</h2>
+      <p class="lead">From a full kitchen or bathroom remodel to a single repair — one licensed contractor for the whole job.</p>
     </div>
+    <div class="services-carousel">
     <div class="services-grid">
 
       <article class="service">
@@ -448,6 +511,8 @@
         </div>
       </article>
 
+    </div>
+    <button class="svc-next" type="button" aria-label="See more services">›</button>
     </div>
   </div>
 </section>
@@ -769,6 +834,66 @@
     window.addEventListener('resize', function(){ go(i, false); });
     go(0, false);
     restart();
+  })();
+
+  // Services carousel arrow (phones) — advance one card, loop to start at the end
+  (function(){
+    var wrap = document.querySelector('.services-carousel');
+    var grid = document.querySelector('.services-grid');
+    var next = document.querySelector('.svc-next');
+    if(!wrap || !grid || !next) return;
+    next.addEventListener('click', function(){
+      var card = grid.querySelector('.service');
+      var step = card ? card.offsetWidth + 14 : grid.clientWidth * 0.8;
+      if(grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 4){
+        grid.scrollTo({left:0, behavior:'smooth'});
+      } else {
+        grid.scrollBy({left:step, behavior:'smooth'});
+      }
+    });
+    // Center the arrow on the actual photo, whatever the screen size
+    function placeArrow(){
+      if(getComputedStyle(next).display === 'none') return;
+      var photo = grid.querySelector('.service-photo');
+      if(!photo) return;
+      var pr = photo.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
+      next.style.top = (pr.top - wr.top + pr.height / 2) + 'px';
+    }
+    window.addEventListener('resize', placeArrow);
+    window.addEventListener('load', placeArrow);
+    requestAnimationFrame(placeArrow);
+  })();
+
+  // Scroll reveal — cards/blocks rise and fade in as they enter view
+  (function(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce || !('IntersectionObserver' in window)) return;
+    var selectors = [
+      '.head-center',
+      '.gallery .gcard',
+      '.stats .stat',
+      '.quote',
+      '.steps .step',
+      '.phases .phase',
+      '.faq-item'
+    ];
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    selectors.forEach(function(sel){
+      var byParent = new Map();
+      document.querySelectorAll(sel).forEach(function(el){
+        // Leave anything already in the first screen visible — no flash on load
+        if(el.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+        el.classList.add('reveal');
+        var i = byParent.get(el.parentNode) || 0;
+        el.style.transitionDelay = Math.min(i, 5) * 70 + 'ms';
+        byParent.set(el.parentNode, i + 1);
+        obs.observe(el);
+      });
+    });
   })();
 
   // FAQ accordion

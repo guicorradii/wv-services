@@ -55,6 +55,22 @@ e no mobile empilhado na ordem intro → carrossel → botões. Kicker "Owner-Op
 (diferencial real: o Wellington executa), linha de cidades com pin, lead enxuto. Carrossel com 5 obras
 (cozinha, banheiro, azulejo, marcenaria, exterior). Paddings do site apertados (seções 88→72px).
 
+**Refino responsivo do hero + seção de serviços (01/08/2026).** Rodada de ajustes finos:
+- Hero com espaçamentos separados por breakpoint — desktop respira (topo 44px), mobile compacto
+  (topo 16px). Header 72px no desktop / 56px no mobile. Logo reduzida pra 28px. Bolinhas do
+  carrossel do hero centralizadas; selos "Licensed & insured / Free estimates" numa linha só,
+  centralizados no mobile.
+- Seção "What we do" → renomeada. Kicker virou "Kitchen & bath specialists", H2 enxuto pra
+  **"Our services"** (antes "Kitchen and bath specialists — full-service contractor", que repetia
+  o hero), lead reescrito: "From a full kitchen or bathroom remodel to a single repair — one
+  licensed contractor for the whole job."
+- Cards de serviço: **4 numa linha no desktop**; viram **carrossel deslizável** (scroll-snap CSS)
+  no tablet (~2 cards) e celular (1 card), com seta de avançar centralizada na foto via JS.
+  Foto dos cards achatada (2/1 desktop, 3/2 no carrossel).
+- **Animações de scroll-reveal** (IntersectionObserver): títulos, galeria, stats, depoimento,
+  passos, fases e FAQ sobem+aparecem ao entrar na tela, com stagger nos grupos e respeito a
+  prefers-reduced-motion. Cards de serviço ficam fora do reveal (conflita com carrossel horizontal).
+
 ## O que pode esperar
 
 Anúncios. Só fazem sentido depois que marca, site e perfil estiverem prontos pra receber o tráfego.
