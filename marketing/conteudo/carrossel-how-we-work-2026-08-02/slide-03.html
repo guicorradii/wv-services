@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0F2544; --navy-deep:#0b1c33; --brick:#C63527; --paper:#F7F4EF;
+}
+html,body{width:1080px;height:1350px;overflow:hidden}
+body{font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+
+.slide{position:relative;width:1080px;height:1350px;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center}
+.slide.dark{background:var(--navy);color:var(--paper)}
+.slide.deep{background:var(--navy-deep);color:var(--paper)}
+.slide.light{background:var(--paper);color:var(--navy)}
+.slide.brick{background:var(--brick);color:#fff}
+
+/* Cabeçalho em todos os slides: handle + contador + régua fina. */
+.hdr{position:absolute;top:56px;left:72px;right:72px;display:flex;
+  justify-content:space-between;align-items:baseline;
+  font-size:26px;font-weight:400;letter-spacing:.06em;opacity:.82;z-index:5}
+.hdr .cnt{font-variant-numeric:tabular-nums;letter-spacing:.14em}
+.hrule{position:absolute;top:110px;left:72px;right:72px;height:1px;
+  background:currentColor;opacity:.2;z-index:5}
+
+/* Slides de texto */
+.body-wrap{padding:0 72px;position:relative;z-index:4}
+.statement h2{font-family:Archivo,sans-serif;font-weight:800;font-size:86px;
+  line-height:1.02;letter-spacing:-.02em}
+.statement .body{font-size:33px;line-height:1.45;max-width:88%;margin-top:34px;
+  opacity:.92;font-weight:400}
+.rule{width:72px;height:3px;background:var(--brick);margin:32px 0 0}
+.slide.brick .rule,.slide.dark.on-brick .rule{background:#fff}
+.punch{font-size:35px;font-weight:600;line-height:1.3;margin-top:40px;
+  color:var(--brick);display:flex;gap:16px}
+.slide.dark .punch,.slide.deep .punch{color:#E8836F}
+.punch .mk{opacity:.85}
+
+/* Numeral grande (carrossel 3) */
+.numeral{font-family:Archivo,sans-serif;font-weight:800;font-size:120px;
+  line-height:1;letter-spacing:-.03em;color:var(--brick);margin-bottom:18px}
+.slide.dark .numeral,.slide.deep .numeral{color:#E8836F}
+
+/* Slides com foto: imagem full-bleed + scrim no topo */
+.cena-img{position:absolute;inset:0;background-size:cover;background-position:center}
+.cena-img::after{content:"";position:absolute;inset:0}
+.cena.dark .cena-img::after{background:linear-gradient(180deg,
+  rgba(9,20,38,.96) 0%, rgba(9,20,38,.92) 38%, rgba(9,20,38,.55) 62%, rgba(9,20,38,.18) 100%)}
+.cena.light .cena-img::after{background:linear-gradient(180deg,
+  rgba(247,244,239,.97) 0%, rgba(247,244,239,.93) 38%, rgba(247,244,239,.55) 62%, rgba(247,244,239,.15) 100%)}
+.cena{justify-content:flex-start}
+.cena .body-wrap{padding-top:188px}
+.eyebrow{font-family:Archivo,sans-serif;font-weight:700;font-size:22px;
+  letter-spacing:.30em;text-transform:uppercase;color:var(--brick);margin-bottom:24px}
+.cena.dark .eyebrow{color:#E8836F}
+.cena h2{font-family:Archivo,sans-serif;font-weight:800;font-size:78px;
+  line-height:1.04;letter-spacing:-.02em}
+.cena .body{font-size:32px;line-height:1.42;max-width:86%;margin-top:30px;opacity:.94}
+.cena .punch{font-size:32px;margin-top:36px}
+
+/* Capa: texto no topo, foto embaixo */
+.capa{justify-content:flex-start}
+.capa .cena-img{background-position:center bottom}
+.capa .cena-img::after{background:linear-gradient(180deg,
+  rgba(9,20,38,.95) 0%, rgba(9,20,38,.9) 34%, rgba(9,20,38,.5) 60%, rgba(9,20,38,.12) 100%)}
+.capa .body-wrap{padding-top:186px}
+.capa h1{font-family:Archivo,sans-serif;font-weight:800;font-size:74px;
+  line-height:1.02;letter-spacing:-.025em}
+.pill{display:inline-block;margin-top:44px;background:var(--brick);color:#fff;
+  font-size:31px;font-weight:500;padding:26px 52px;border-radius:4px}
+.slide.brick .pill{background:#fff;color:var(--brick)}
+
+/* CTA */
+.cta h2{font-family:Archivo,sans-serif;font-weight:800;font-size:84px;
+  line-height:1.03;letter-spacing:-.02em}
+.cta .lead{font-size:31px;line-height:1.42;max-width:82%;margin-top:30px;opacity:.95}
+.cta .pill{padding:30px 58px}
+.ig-actions{display:flex;gap:44px;margin-top:62px}
+.ig-actions svg{width:60px;height:60px;fill:none;stroke:currentColor;stroke-width:1.9}
+
+/* Setas de navegação (slides 2 a 6) */
+.nav-arrows{position:absolute;left:50%;bottom:58px;transform:translateX(-50%);
+  display:flex;gap:26px;z-index:6}
+.nav-arrows .a{width:74px;height:74px;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-size:40px;line-height:1}
+.nav-arrows .prev{background:color-mix(in srgb, currentColor 14%, transparent);opacity:.75}
+.nav-arrows .next{background:var(--brick);color:#fff}
+.slide.brick .nav-arrows .next{background:#fff;color:var(--brick)}
+</style></head><body><section class="slide cena dark"><div class="hdr"><span>@wv.services</span><span class="cnt">03 / 07</span></div><div class="hrule"></div>
+      <div class="cena-img" style="background-image:url('work-interior.jpg');background-position:center 72%;background-size:122%"></div>
+      <div class="body-wrap">
+        <div class="eyebrow">Step one</div>
+        <h2>We come look at it.</h2><div class="rule"></div>
+        <div class="body">A free estimate, in your home. We walk the space with you, talk through what you want, and tell you what the work actually takes.</div><div class="punch"><span class="mk">&rsaquo;</span><span>No charge, no pressure.</span></div>
+      </div>
+<div class="nav-arrows">
+  <div class="a prev">&#8249;</div>
+  <div class="a next">&#8250;</div>
+</div>
+    </section>
+</body></html>

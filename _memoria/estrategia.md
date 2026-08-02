@@ -131,16 +131,21 @@ Com o site praticamente pronto pra encaminhar, o Guilherme decidiu montar uma **
 formal** (em página web, PT) pro Wellington — foco em **combinar a remuneração** e **fechar os
 dados que faltam**. Decisões travadas:
 
-- **Modelo:** por projeto/entrega. Valores em **R$** (com equivalente em US$ na página, câmbio ~R$ 5,40).
+- **Modelo:** por projeto/entrega. Valores em **R$**, com equivalente em US$ só de referência.
 - **Âncora / valor de referência:** **R$ 5.000** pelo pacote completo — é quanto o trabalho vale
   no mercado (R$ 4–8k) e a referência que o Wellington passa quando indicar o Guilherme.
-- **Preço de fundador (o que ele paga):** **R$ 2.500** pelo pacote — identidade + site + Instagram
-  + estrutura de Google Ads, com **2 meses de gestão dos anúncios grátis**. A **verba de mídia**
-  (o que vai pro Google) é **à parte, paga pelo cliente** — isso está explícito na proposta pra
-  não virar mal-entendido. Preço de primeiro cliente / case, decisão consciente.
-- **Nível enxuto:** site sozinho **R$ 1.000**.
-- **Mensalidade (após os 2 meses):** **a partir de R$ 500/mês** — gestão de ads + conteúdo de
-  Instagram + acompanhamento. Sem contrato longo.
+- **Três níveis em escada (definidos em 02/08/2026)** — cada um inclui o anterior, e a
+  **identidade visual entra já no primeiro** (não é mais exclusiva do pacote):
+  - **Site** (identidade + site): **R$ 1.500** ≈ US$ 300
+  - **Site + Instagram**: **R$ 2.000** ≈ US$ 400
+  - **Pacote completo** (+ Google Ads + **2 meses de gestão grátis**): **R$ 2.500** ≈ US$ 500
+- **Câmbio arredondado a R$ 5,00/US$** pra os números saírem redondos. Decisão do Guilherme:
+  número quebrado (era 5,40, dava US$ 465 e US$ 185) dá vontade de conferir na calculadora.
+- A **verba de mídia** (o que vai pro Google) é **à parte, paga pelo cliente**. Fica explícito
+  no card do pacote **e** na seção dedicada — é o ponto que mais gera mal-entendido.
+- **Preço de fundador:** decisão consciente de primeiro cliente / case.
+- **Mensalidade (após os 2 meses):** **a partir de R$ 500/mês** (≈ US$ 100) — gestão de ads +
+  conteúdo de Instagram + acompanhamento. Sem contrato longo.
 
 **Entregáveis criados** (versionados em `saidas/proposta-wellington/`; publicados como artifact
 privado no claude.ai — URLs no README de lá):
@@ -151,10 +156,40 @@ privado no claude.ai — URLs no README de lá):
   em inglês, destaques e **grade de obras clicável** com visualizador modal. É um **shell** —
   fotos de obra como posts simples; a mecânica já aceita carrossel de vários slides pra plugar depois.
 
-**Pendências da proposta:** (1) o Wellington vai mandar **prints reais** do site atual e do
-@wv.services pra trocar os "antes" ilustrativos; (2) confirmar o **sobrenome** dele no cabeçalho;
-(3) validar o **câmbio**. Seguem valendo as pendências que travam o site (licença/seguro, anos de
-operação, fotos "antes", destino do formulário).
+**Pendências da proposta:** confirmar o **sobrenome** do Wellington no cabeçalho. Seguem valendo
+as pendências que travam o site (licença/seguro, anos de operação, fotos "antes", destino do
+formulário). ✅ Prints reais e câmbio resolvidos em 02/08/2026 (ver abaixo).
+
+## Instagram + carrosséis + proposta com print real (02/08/2026)
+
+Rodada que fechou a camada de Instagram e tirou os "ilustrativos" da proposta.
+
+- **Padrão de qualidade de carrossel importado** da Hope Consult pra `_memoria/carrosseis.md`
+  (arco narrativo, escala tipográfica, imagem full-bleed com scrim, navegação, gotchas de
+  render deste PC). A skill `/carrossel` daqui era idêntica à de lá e agora lê esse arquivo
+  primeiro. Adaptado à marca: Archivo/Inter, brick red no lugar do dourado, **foto de obra real
+  na frente de imagem de IA** (o design-guide manda), copy em inglês.
+- **Capas de destaque** em `instagram/destaques/` — 6 capas 1080×1920, ícone line-art branco:
+  Kitchens, Baths, Tile, Before/After, Reviews em navy + **Free estimate em brick red** (é o
+  destaque de aquisição, por isso é o único vermelho). Gerador `gerar-destaques.mjs` junto.
+- **Avatar do Instagram**: `identidade/logo/png/instagram-profile.png` (monograma em relevo
+  fosco). Prompts em `identidade/logo/prompts-avatar-ia.md`. ⚠️ 3D/metálico está no "nunca" do
+  design guide — a versão aprovada é volume **fosco**, sem cromado.
+- **3 carrosséis iniciais** em `marketing/conteudo/`, 7 slides cada, renderizados:
+  *One contractor. The whole job.* (apresentação) · *Three questions to ask before you hire
+  anyone.* (autoridade, alcance) · *A remodel should not feel like guesswork.* (processo).
+  Ordem de publicação: 1 → 3 → 2. A 1ª leva de temas foi descartada por ser específica demais
+  (impermeabilização camada a camada, cronograma semana a semana) — ficam pra quando o perfil
+  tiver base.
+- **Preview do Instagram** (`ig-wv.html`) atualizado: avatar novo, os 6 destaques e os 3
+  carrosséis na grade, folheáveis no visualizador.
+- **Proposta** com **print real** nos dois antes/depois (site e Instagram). Os 6 prints estão em
+  `dados/`. Logo do topo e do rodapé agora em **W branco + V brick** (acima de 40px a regra do
+  favicon não se aplica).
+
+**Trava pra publicar os carrosséis:** licença/seguro confirmados (os três afirmam "licensed and
+insured") e o **destino do formulário** do site — os CTAs mandam pro link da bio → site, e hoje
+o formulário descarta os dados em silêncio.
 
 ## Gargalo atual
 

@@ -12,8 +12,14 @@ description: >
 
 Skill central de criação de conteúdo visual. Pega um tema → entrega HTMLs estilizados + PNGs prontos pra postar + legenda no padrão da marca.
 
+> ⚠️ **Antes de qualquer coisa, ler `_memoria/carrosseis.md`** — é o padrão de
+> qualidade aprovado pelo Guilherme (arco narrativo, escala tipográfica, regra de
+> imagem full-bleed, navegação, gotchas de render). **Ele manda sobre o que está
+> escrito aqui.** Este arquivo é a base genérica; o padrão é o que vale.
+
 ## Dependências
 
+- **Padrão de qualidade:** `_memoria/carrosseis.md` — LER PRIMEIRO, sobrescreve esta skill
 - **Identidade visual:** `identidade/design-guide.md` — LER ANTES de criar qualquer visual
 - **Contexto do negócio:** `_memoria/empresa.md`
 - **Tom de voz:** `_memoria/preferencias.md`
