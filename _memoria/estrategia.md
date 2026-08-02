@@ -191,6 +191,28 @@ Rodada que fechou a camada de Instagram e tirou os "ilustrativos" da proposta.
 insured") e o **destino do formulário** do site — os CTAs mandam pro link da bio → site, e hoje
 o formulário descarta os dados em silêncio.
 
+## Site: reviews, números reais e antes/depois oculto (02/08/2026)
+
+Rodada de pedidos do Wellington aplicada em `projetos/Site-WV-Services/site/index.html`.
+
+- **Aba de reviews** (pedido dele): seção `#reviews` entre a faixa de números e o "How it
+  works", com link no header e no rodapé. Duas colunas — reviews publicados à esquerda,
+  formulário à direita (nome, nota em estrelas acessível, serviço, cidade, texto) e nota de
+  consentimento de publicação. **O depoimento do Michael Weymouth voltou ao site** como
+  primeiro review — era a previsão registrada em 01/08 e se cumpriu: aba de review vazia é
+  pior que aba nenhuma.
+- **Números fechados:** `10+` anos na Grande Boston e `250+` obras, os dois com o contador
+  animado ligado. O `[X]+` saiu do site.
+- **Licença e seguro:** confirmados pelo Wellington e reforçados em cinco pontos do site.
+  Ele tratou isso como informação obrigatória.
+- **Antes/depois oculto** (`hidden`), por falta das fotos "antes". Código inteiro e
+  funcionando; religar é tirar o atributo, trocar os `.ba-ph` por `<img>` e devolver o link
+  ao menu. O link do header virou "Reviews".
+
+**Único bloqueio que sobra pra publicar:** o **destino dos formulários**. Agora são dois —
+orçamento e review — e os dois descartam os dados em silêncio. Mesma solução resolve os dois.
+Fotos "antes" deixaram de ser bloqueio, viraram melhoria (a seção está oculta).
+
 ## Gargalo atual
 
 Aquisição de cliente depende 100% de indicação e rede pessoal. Não existe canal que traga cliente novo sem alguém apresentar. É o teto de crescimento do negócio.

@@ -56,10 +56,20 @@ confiança, isso é o pior tipo de erro visível. Corrigir cedo, mesmo antes do 
 - **Público-alvo:** a **comunidade americana** — reforça a decisão de site 100% em inglês.
 - **Sobre a lista de ~100 serviços (PDF):** é lista genérica de capacidade de GC (o próprio texto diz isso), provavelmente gerada por IA. Não vai inteira pro site — curada em 4 frentes. O PDF tem valor real na **sequência de obra** de cozinha/banheiro (planejamento → demolição → infra → paredes/piso → louças → acabamento), que virou a seção "Our Process" do site.
 
+### ✅ Respostas do Wellington (02/08/2026)
+
+- **Mais de 10 anos** de operação na Grande Boston.
+- **Mais de 250 obras** concluídas.
+- **Full license e full insurance** — ele fez questão de dizer que essa informação precisa
+  estar no site. Entrou em cinco pontos: selo do hero, faixa de números, bloco de contato,
+  FAQ e rodapé, com a formulação "fully licensed & fully insured".
+- **Pediu uma aba de reviews** no site, pro cliente deixar avaliação.
+
 ### A confirmar com o Wellington
 
-- Confirma o número de licença e a seguradora (pra usar "Licensed & Insured" com prova)
+- **Número** da licença e nome da seguradora (ele confirmou que tem as duas; falta o dado
+  pra exibir prova, não só a afirmação)
 - Existe algum prêmio real, ou "Excellence Recognized" é texto de template?
 - Faz obra comercial de fato, ou o "Commercial" da logo é aspiracional?
-- Quantos anos de operação — número real ancora a comunicação
 - Cidades específicas que ele atende dentro da Grande Boston
+- **Fotos "antes"** — segue sendo a lacuna do acervo

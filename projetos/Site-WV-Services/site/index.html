@@ -279,6 +279,39 @@
   #before-after{padding-bottom:44px}
   #process{padding-top:48px}
 
+  /* ===== Reviews (cream section — read reviews left, leave one right) ===== */
+  .reviews-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+  .review-list{display:grid;gap:20px}
+  .review{background:var(--white);border:1px solid var(--neutral);border-radius:var(--radius);padding:24px 26px}
+  .stars{color:var(--brick);font-size:1.05rem;letter-spacing:.14em;line-height:1;margin-bottom:12px}
+  .review p{font-size:1rem;color:var(--navy-70)}
+  .review .who{margin-top:16px;font-family:'Archivo',sans-serif;font-weight:700;font-size:.95rem}
+  .review .who span{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.85rem;color:var(--navy-55);margin-top:2px}
+  /* Empty-ish state: the invite doubles as the second card while reviews come in */
+  .review-invite{border-style:dashed;background:transparent}
+  .review-invite strong{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.05rem;display:block;margin-bottom:6px}
+  .review-invite p{font-size:.95rem}
+
+  /* The global form styles are built for the navy contact block — relight them here */
+  form.review-form{background:var(--white);border:1px solid var(--neutral)}
+  .review-form label{color:var(--navy)}
+  .review-form input,.review-form select,.review-form textarea{background:var(--paper)}
+  .review-form .form-note{color:var(--navy-55)}
+  .review-form h3{font-size:1.25rem;margin-bottom:4px}
+  .review-form .sub{font-size:.92rem;color:var(--navy-70);margin-bottom:20px}
+  /* Star rating — row-reverse so `input:checked ~ label` paints everything to its left */
+  .rating{display:inline-flex;flex-direction:row-reverse;justify-content:flex-end;gap:4px;border:0;padding:0;margin:0}
+  .rating input{position:absolute;width:1px;height:1px;opacity:0}
+  .rating label{font-size:1.7rem;line-height:1;color:var(--neutral);cursor:pointer;margin:0;transition:color .12s}
+  .rating input:checked ~ label,
+  .rating label:hover,
+  .rating label:hover ~ label{color:var(--brick)}
+  .rating input:focus-visible + label{outline:2px solid var(--brick);outline-offset:2px}
+  /* Not a <label> — the stars carry their own; this just names the group */
+  .field-label{display:block;font-size:.85rem;font-weight:500;margin-bottom:6px;color:var(--navy)}
+  .review-ok{background:var(--white);border:1px solid var(--neutral);color:var(--navy)}
+  .review-ok p{color:var(--navy-70)}
+
   /* ===== FAQ (dark — same navy as the contact form above it) ===== */
   #faq{background:var(--navy);color:#fff}
   #faq h2{color:#fff}
@@ -345,6 +378,7 @@
   @media (max-width:900px){
     section{padding:56px 0}
     .contact-grid{grid-template-columns:1fr;gap:36px}
+    .reviews-grid{grid-template-columns:1fr;gap:28px}
     /* Mobile order: intro → carousel → CTA */
     /* Compact hero on mobile/tablet — desktop keeps its breathing room */
     .hero{padding:16px 0 20px}
@@ -442,7 +476,7 @@
       </div>
       <nav class="nav-links">
         <a href="#services">Services</a>
-        <a href="#before-after">Before &amp; After</a>
+        <a href="#reviews">Reviews</a>
         <a href="#process">How It Works</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -505,7 +539,7 @@
           <a class="btn btn-secondary" href="tel:+15088187005">Call (508) 818-7005</a>
         </div>
         <div class="hero-trust">
-          <span><span class="check">✓</span> Licensed &amp; insured</span>
+          <span><span class="check">✓</span> Fully licensed &amp; insured</span>
           <span><span class="check">✓</span> Free on-site estimates</span>
         </div>
       </div>
@@ -595,18 +629,105 @@
 <section class="numbers">
   <div class="wrap">
     <div class="numbers-grid">
-      <!-- Números a confirmar com o Wellington. Pra ligar o contador, trocar o texto
-           e adicionar data-count="15" data-suffix="+" no div.n correspondente. -->
-      <div class="figure"><div class="n">[X]+</div><div class="l">Years in Greater Boston</div></div>
-      <div class="figure"><div class="n">[X]+</div><div class="l">Projects completed</div></div>
-      <div class="figure"><div class="n" data-count="100" data-suffix="%">100%</div><div class="l">Licensed &amp; insured</div></div>
+      <!-- Números confirmados pelo Wellington em 02/08/2026. -->
+      <div class="figure"><div class="n" data-count="10" data-suffix="+">10+</div><div class="l">Years in Greater Boston</div></div>
+      <div class="figure"><div class="n" data-count="250" data-suffix="+">250+</div><div class="l">Projects completed</div></div>
+      <div class="figure"><div class="n" data-count="100" data-suffix="%">100%</div><div class="l">Fully licensed &amp; insured</div></div>
       <div class="figure"><div class="n">Free</div><div class="l">On-site estimates</div></div>
     </div>
   </div>
 </section>
 
+<!-- ============ REVIEWS ============ -->
+<!-- Pedido do Wellington (02/08/2026): aba pro cliente deixar review.
+     ⚠️ O formulário é stub de front-end, igual ao de orçamento — mostra sucesso e
+     descarta os dados. Ligar ao mesmo destino que o formulário de orçamento. -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="head-center">
+      <div class="rule center"></div>
+      <span class="kicker">Reviews</span>
+      <h2>What neighbors say</h2>
+      <p class="lead">Most of our work comes from referrals. If we've worked on your home, a few words go a long way — they're how the next neighbor decides.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-list">
+        <!-- Review real do site antigo. Novos reviews entram nesse mesmo molde,
+             com <div class="stars">★★★★★</div> acima do texto. -->
+        <article class="review">
+          <p>“He took care of everything — from demolishing the old one to designing and building the new one.”</p>
+          <div class="who">Michael Weymouth <span>Full kitchen remodel · Greater Boston</span></div>
+        </article>
+
+        <article class="review review-invite">
+          <strong>Worked with us before?</strong>
+          <p>Ten years of work in Greater Boston, almost all of it by word of mouth. We're gathering those words here — yours helps the next homeowner know what to expect.</p>
+        </article>
+      </div>
+
+      <div>
+        <form id="reviewForm" class="review-form" novalidate>
+          <h3>Leave a review</h3>
+          <p class="sub">Takes a minute. No account needed.</p>
+
+          <div class="field">
+            <label for="rv-name">Name</label>
+            <input id="rv-name" name="name" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <span class="field-label">Rating</span>
+            <fieldset class="rating" aria-label="Rating, 1 to 5 stars">
+              <input type="radio" id="rv-star-5" name="rating" value="5" required><label for="rv-star-5" title="5 stars">★</label>
+              <input type="radio" id="rv-star-4" name="rating" value="4"><label for="rv-star-4" title="4 stars">★</label>
+              <input type="radio" id="rv-star-3" name="rating" value="3"><label for="rv-star-3" title="3 stars">★</label>
+              <input type="radio" id="rv-star-2" name="rating" value="2"><label for="rv-star-2" title="2 stars">★</label>
+              <input type="radio" id="rv-star-1" name="rating" value="1"><label for="rv-star-1" title="1 star">★</label>
+            </fieldset>
+          </div>
+
+          <div class="field">
+            <label for="rv-service">What did we work on?</label>
+            <select id="rv-service" name="service">
+              <option>Kitchen</option>
+              <option>Bathroom</option>
+              <option>Interior work</option>
+              <option>Exterior work</option>
+              <option>General contracting</option>
+              <option>Maintenance or repair</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="rv-city">Town <span style="opacity:.6">(optional)</span></label>
+            <input id="rv-city" name="city" type="text" placeholder="Cambridge, MA">
+          </div>
+
+          <div class="field">
+            <label for="rv-message">Your review</label>
+            <textarea id="rv-message" name="message" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit review</button>
+          <p class="form-note">We may post your review on this site and our social media. We'll never share your contact information.</p>
+        </form>
+
+        <div class="form-ok review-ok" id="reviewOk">
+          <strong>Thank you — we got your review.</strong>
+          <p style="margin-top:8px">It means a lot. We'll get it posted shortly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ BEFORE / AFTER ============ -->
-<section id="before-after">
+<!-- OCULTA (02/08/2026): o Wellington ainda não tem as fotos "antes". A seção está
+     inteira e funcionando — pra religar, apagar o `hidden` abaixo, trocar cada
+     <div class="ba-ph"> por <img src="img/before-*.jpg" alt="..."> e devolver o
+     link "Before & After" ao menu do header. -->
+<section id="before-after" hidden>
   <div class="wrap">
     <div class="head-center">
       <div class="rule center"></div>
@@ -708,6 +829,10 @@
           <div class="ic">Area</div>
           <div class="v">Boston · Cambridge · Newton</div>
         </div>
+        <div class="contact-line">
+          <div class="ic">Credentials</div>
+          <div class="v">Fully licensed &amp; fully insured<small>Massachusetts general contractor — proof available before any job starts</small></div>
+        </div>
       </div>
 
       <div>
@@ -757,7 +882,7 @@
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q">Are you licensed and insured?<span class="ic">+</span></button>
-        <div class="faq-a"><p>Yes. WV Services is fully licensed and insured for residential work in Massachusetts. We're happy to share our details before any job starts.</p></div>
+        <div class="faq-a"><p>Yes — fully licensed and fully insured for residential work in Massachusetts. We'll show you the paperwork before any job starts, and we're glad you asked: it's the first thing you should ask any contractor.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">What areas do you serve?<span class="ic">+</span></button>
@@ -798,6 +923,7 @@
       </div>
       <div class="foot-col">
         <h4>Company</h4>
+        <a href="#reviews">Reviews</a>
         <a href="#process">How It Works</a>
         <a href="#faq">FAQ</a>
       </div>
@@ -809,7 +935,7 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© <span id="year"></span> WV Services · Boston, MA · Licensed &amp; Insured</span>
+      <span>© <span id="year"></span> WV Services · Boston, MA · Fully Licensed &amp; Fully Insured</span>
       <span>General Contractor</span>
     </div>
   </div>
@@ -904,6 +1030,7 @@
       '.head-center',
       '.services-grid .service',
       '.numbers .figure',
+      '.review-list .review',
       '.steps .step',
       '.ba-list .ba',
       '.faq-item'
@@ -991,6 +1118,23 @@
     form.style.display = 'none';
     document.getElementById('formOk').classList.add('show');
   });
+
+  // Review form — same front-end stub. TODO: wire to the same endpoint as the estimate form.
+  (function(){
+    var rv = document.getElementById('reviewForm');
+    if(!rv) return;
+    rv.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = rv.querySelector('#rv-name');
+      var msg = rv.querySelector('#rv-message');
+      var rated = rv.querySelector('input[name="rating"]:checked');
+      if(!name.value.trim()){ name.focus(); return; }
+      if(!rated){ rv.querySelector('#rv-star-5').focus(); return; }
+      if(!msg.value.trim()){ msg.focus(); return; }
+      rv.style.display = 'none';
+      document.getElementById('reviewOk').classList.add('show');
+    });
+  })();
 </script>
 
 </body>

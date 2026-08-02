@@ -20,8 +20,17 @@ O que falta não é design — é dado que só o Wellington tem, mais o destino 
 
 **Seções, na ordem:** header sticky (logo + menu + telefone + botão "Free estimate") → hero
 (texto à esquerda, carrossel de 5 obras à direita, botões centralizados) → Our services (4 cards)
-→ faixa navy de números → Before & after (3 sliders de arraste) → How it works (3 passos) →
+→ faixa navy de números → **Reviews** → ~~Before & after~~ *(oculta)* → How it works (3 passos) →
 formulário de contato → FAQ → rodapé.
+
+**Reviews (02/08/2026, pedido do Wellington):** seção `#reviews`, duas colunas — reviews
+publicados à esquerda (hoje o depoimento do Michael Weymouth, que voltou ao site), formulário
+à direita: nome, nota em estrelas, serviço, cidade e texto, com nota de consentimento de
+publicação. O molde de review novo está comentado no HTML.
+
+**Before & after oculta (02/08/2026):** `<section id="before-after" hidden>` — o Wellington
+ainda não tem as fotos "antes". Nada foi apagado. Religar = tirar o `hidden`, trocar cada
+`<div class="ba-ph">` por `<img>` e devolver o link ao menu do header (hoje ocupado por "Reviews").
 
 **Removidas na revisão de 01/08:** a galeria "Our Work", a seção "Why WV Services" (com o
 depoimento do Michael Weymouth) e o método de obra em 6 fases — este último por redundância
@@ -34,14 +43,13 @@ meio; formulário e FAQ em navy `#0F2544`; rodapé em `--navy-deep` `#0b1c33`.
 Bloqueios pra fechar:
 - [x] Fotos de obra real — 62 fotos em `dados/fotos/`, 11 otimizadas em `site/img/` (31/07)
 - [x] Cidades atendidas — Boston, Cambridge, Newton + Grande Boston (respondido 31/07)
-- [ ] **Números da faixa navy** — anos em Greater Boston e obras concluídas estão como `[X]+`.
-      Pra ligar o contador, trocar o texto e adicionar `data-count="15" data-suffix="+"`
-- [ ] **Fotos "antes"** — o acervo é 100% "depois". Os 3 sliders funcionam; o lado esquerdo é
-      um placeholder tracejado. Trocar cada `<div class="ba-ph">` por `<img>` e nada mais muda
-- [ ] **Destino do formulário** — hoje é stub de front-end: mostra sucesso e descarta os dados.
-      Do jeito que está, todo pedido de orçamento se perde em silêncio. Bloqueia a publicação
-- [ ] Email de domínio (hoje Gmail pessoal) e o restante das respostas do Wellington
-      (licença/seguradora, casos concretos)
+- [x] **Números da faixa navy** — `10+` anos e `250+` obras, com contador ligado (02/08)
+- [x] **Licença e seguro** — confirmados pelo Wellington, aplicados em cinco pontos do site (02/08)
+- [ ] **Fotos "antes"** — o acervo é 100% "depois". Deixou de ser bloqueio: a seção está
+      oculta. Vira melhoria quando as fotos chegarem
+- [ ] **Destino dos formulários** — são dois agora (orçamento e review) e os dois são stub de
+      front-end: mostram sucesso e descartam os dados. **Único bloqueio real pra publicar**
+- [ ] Email de domínio (hoje Gmail pessoal), número da licença/seguradora e casos concretos
 
 ## Onde salvar o que
 
