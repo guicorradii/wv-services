@@ -93,6 +93,37 @@ Coleta de contexto rodando em paralelo: `_memoria/perguntas-wellington.md` — r
 cidades atendidas definidas (Boston, Cambridge, Newton + Grande Boston), foco em cozinha/banheiro
 confirmado, linha de manutenção mapeada. Ainda faltam licença, anos de operação e casos concretos.
 
+## Proposta pro Wellington (01/08/2026)
+
+Com o site praticamente pronto pra encaminhar, o Guilherme decidiu montar uma **proposta
+formal** (em página web, PT) pro Wellington — foco em **combinar a remuneração** e **fechar os
+dados que faltam**. Decisões travadas:
+
+- **Modelo:** por projeto/entrega. Valores em **R$** (com equivalente em US$ na página, câmbio ~R$ 5,40).
+- **Âncora / valor de referência:** **R$ 5.000** pelo pacote completo — é quanto o trabalho vale
+  no mercado (R$ 4–8k) e a referência que o Wellington passa quando indicar o Guilherme.
+- **Preço de fundador (o que ele paga):** **R$ 2.500** pelo pacote — identidade + site + Instagram
+  + estrutura de Google Ads, com **2 meses de gestão dos anúncios grátis**. A **verba de mídia**
+  (o que vai pro Google) é **à parte, paga pelo cliente** — isso está explícito na proposta pra
+  não virar mal-entendido. Preço de primeiro cliente / case, decisão consciente.
+- **Nível enxuto:** site sozinho **R$ 1.000**.
+- **Mensalidade (após os 2 meses):** **a partir de R$ 500/mês** — gestão de ads + conteúdo de
+  Instagram + acompanhamento. Sem contrato longo.
+
+**Entregáveis criados** (versionados em `saidas/proposta-wellington/`; publicados como artifact
+privado no claude.ai — URLs no README de lá):
+- **Proposta** (página web na identidade WV): abertura → seção "Na prática" (site antes/depois,
+  Instagram antes/depois, demonstração de Google Ads) → opções/preço → disclaimer de fundador →
+  tabela de valores → "o que falta confirmar" → próximos passos.
+- **Simulação do Instagram** posicionado (formato Hope-Consult): moldura de celular, header/bio
+  em inglês, destaques e **grade de obras clicável** com visualizador modal. É um **shell** —
+  fotos de obra como posts simples; a mecânica já aceita carrossel de vários slides pra plugar depois.
+
+**Pendências da proposta:** (1) o Wellington vai mandar **prints reais** do site atual e do
+@wv.services pra trocar os "antes" ilustrativos; (2) confirmar o **sobrenome** dele no cabeçalho;
+(3) validar o **câmbio**. Seguem valendo as pendências que travam o site (licença/seguro, anos de
+operação, fotos "antes", destino do formulário).
+
 ## Gargalo atual
 
 Aquisição de cliente depende 100% de indicação e rede pessoal. Não existe canal que traga cliente novo sem alguém apresentar. É o teto de crescimento do negócio.
