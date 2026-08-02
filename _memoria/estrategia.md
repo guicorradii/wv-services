@@ -71,6 +71,38 @@ e no mobile empilhado na ordem intro → carrossel → botões. Kicker "Owner-Op
   passos, fases e FAQ sobem+aparecem ao entrar na tela, com stagger nos grupos e respeito a
   prefers-reduced-motion. Cards de serviço ficam fora do reveal (conflita com carrossel horizontal).
 
+### Site aprovado pelo Guilherme (01/08/2026)
+
+Rodada final de revisão. **A estrutura e o layout estão fechados** — o site não espera mais
+decisão de design.
+
+**Seções cortadas:** galeria "Our Work", "Why WV Services" (levou junto o depoimento do Michael
+Weymouth, única voz autêntica que a empresa tinha) e o método de obra em 6 fases, redundante com
+o "How it works". Fica registrado: se em algum momento a página parecer curta em prova social,
+o depoimento é o primeiro item a voltar.
+
+**Seções novas:** faixa navy de números (4 indicadores, com contador animado) e **Before & after**
+com slider de arraste — três comparadores onde o usuário puxa o divisor. A mecânica está pronta e
+acessível (arraste, toque, clique e setas do teclado); só falta a foto.
+
+**Ordem final:** header sticky com botão "Free estimate" → hero → Our services → faixa de números
+→ Before & after → How it works → formulário → FAQ → rodapé.
+
+**Fundos:** creme do hero até o "How it works", faixa de números em navy no meio, formulário e FAQ
+em navy `#0F2544`, rodapé em `#0b1c33` (variável `--navy-deep`).
+
+**Falta pra publicar — nada disso é design:**
+1. **Números** — anos em Greater Boston e obras concluídas, hoje `[X]+`
+2. **Fotos "antes"** — o acervo é 100% "depois"; os três sliders estão com placeholder tracejado
+3. **Destino do formulário** — é stub de front-end: mostra sucesso e descarta os dados. Todo
+   pedido de orçamento se perderia em silêncio. É o bloqueio mais grave, e não depende do Wellington
+
+Os itens 1 e 2 passam ao topo do roteiro de `_memoria/perguntas-wellington.md`.
+
+> **Correção a fazer no design guide:** ele afirma que brick red sobre navy dá 1.1:1 e usa isso pra
+> justificar a regra do favicon. O valor real é **2.88:1** (1.1:1 é o contraste entre `#0F2544` e
+> `#0b1c33` — parece medição trocada). A regra continua válida, o número não.
+
 ## O que pode esperar
 
 Anúncios. Só fazem sentido depois que marca, site e perfil estiverem prontos pra receber o tráfego.

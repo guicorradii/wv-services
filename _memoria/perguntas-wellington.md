@@ -6,6 +6,26 @@
 
 ---
 
+## 🔴 Caminho crítico — o site trava nisso (01/08/2026)
+
+Estrutura e layout do site estão aprovados. Só falta dado que só ele tem. **Pedir estes dois
+primeiro, antes de qualquer outra pergunta:**
+
+**A. Há quantos anos você trabalha em Boston, e mais ou menos quantas obras você já entregou?**
+*(Vai direto na faixa de números do site, hoje com `[X]+` no lugar. Número redondo e honesto
+serve — "uns 200" vira "200+". Não precisa de precisão contábil.)*
+
+**B. Foto de ANTES.** O acervo de 62 fotos é 100% "depois". O site tem três comparadores de
+antes/depois prontos e funcionando, mas o lado esquerdo está vazio.
+> "Tio, das obras que você já mandou foto pronta — tem foto de como estava ANTES? Cozinha
+> velha, banheiro antigo, parede acabada. Mesmo foto ruim de celular serve. É o que mais
+> convence cliente, ver o antes e o depois lado a lado."
+
+Ideal: pelo menos 3 pares (a mesma obra antes e depois). Se ele tiver de outras obras que não
+estão no site, também serve — dá pra trocar o "depois" pra casar o par.
+
+---
+
 ## As dez
 
 **1. Me conta tudo que você faz. Tipo, se eu te ligar hoje precisando de alguma coisa em casa, o que você pega e o que você não pega?**
@@ -79,6 +99,8 @@ faz obra comercial de fato ou se foi só pra parecer maior. Muda o posicionament
 - [ ] 8. Anos de experiência
 - [ ] 9. Equipe e capacidade
 - [ ] 10. Objeções
-- [ ] Fotos
+- [~] Fotos — 62 fotos de obra pronta recebidas (31/07). **Faltam as fotos "antes"** → item B acima
+- [ ] **A. Anos + nº de obras** — caminho crítico do site (01/08)
+- [ ] **B. Fotos "antes"** — caminho crítico do site (01/08)
 - [ ] Prêmios (confirmar)
 - [~] Commercial (confirmar) — áudio sugere que faz comercial (escritório/loja), mas confirmar se é real ou aspiracional antes de destacar. (31/07)

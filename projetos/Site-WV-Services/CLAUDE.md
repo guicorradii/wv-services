@@ -15,27 +15,33 @@ Projeto próprio da empresa (em construção)
 
 ## Estado
 
-🔨 **Em construção — estrutura v1 montada (31/07/2026).** `site/index.html` single-file com
-todas as seções (hero, serviços em 4 frentes, antes/depois, provas, processo de obra, FAQ,
-contato) e placeholders no lugar das fotos.
+✅ **Estrutura e layout aprovados pelo Guilherme (01/08/2026).** `site/index.html` single-file.
+O que falta não é design — é dado que só o Wellington tem, mais o destino do formulário.
 
-**Hero redesenhado (01/08/2026).** Fundo claro, duas colunas no desktop (texto à esquerda,
-carrossel "peek" à direita — foto ativa cheia + espiada da próxima, 5 obras); no mobile empilha
-intro → carrossel → botões. Kicker "Owner-Operated General Contractor" + linha de cidades com pin.
-Paddings do site apertados (seções 88→72px desktop, 64→56px mobile). Detalhes em `_memoria/estrategia.md`.
+**Seções, na ordem:** header sticky (logo + menu + telefone + botão "Free estimate") → hero
+(texto à esquerda, carrossel de 5 obras à direita, botões centralizados) → Our services (4 cards)
+→ faixa navy de números → Before & after (3 sliders de arraste) → How it works (3 passos) →
+formulário de contato → FAQ → rodapé.
 
-**Refino responsivo (01/08/2026).** Espaçamentos do hero separados por breakpoint (desktop respira,
-mobile compacto), header 72/56px, logo 28px. Seção "Our services" com cópia enxuta (kicker "Kitchen &
-bath specialists"). Cards de serviço: 4 numa linha no desktop, carrossel deslizável no tablet/celular
-com seta. Animações de scroll-reveal (IntersectionObserver) nos cards/blocos. Detalhes em `_memoria/estrategia.md`.
+**Removidas na revisão de 01/08:** a galeria "Our Work", a seção "Why WV Services" (com o
+depoimento do Michael Weymouth) e o método de obra em 6 fases — este último por redundância
+com o "How it works". As fotos `work-*.jpg` seguem em `site/img/`, hoje usadas no hero e no
+antes/depois.
+
+**Fundos:** creme (`--paper`) do hero até o "How it works", com a faixa de números em navy no
+meio; formulário e FAQ em navy `#0F2544`; rodapé em `--navy-deep` `#0b1c33`.
 
 Bloqueios pra fechar:
-- [x] Fotos de obra real — 11 fotos aplicadas em hero, cards e galeria (31/07). Otimizadas em `site/img/`
+- [x] Fotos de obra real — 62 fotos em `dados/fotos/`, 11 otimizadas em `site/img/` (31/07)
 - [x] Cidades atendidas — Boston, Cambridge, Newton + Grande Boston (respondido 31/07)
-- [ ] Restante das respostas do Wellington — licença/seguradora, anos de operação, casos concretos
-- [ ] Destino do formulário (hoje é stub front-end) e email de domínio (hoje Gmail pessoal)
-- [ ] Fotos "antes" — o acervo é 100% "depois". A seção "Our Work" virou galeria de obra
-      concluída; monta antes/depois de verdade quando o Wellington mandar as fotos "antes"
+- [ ] **Números da faixa navy** — anos em Greater Boston e obras concluídas estão como `[X]+`.
+      Pra ligar o contador, trocar o texto e adicionar `data-count="15" data-suffix="+"`
+- [ ] **Fotos "antes"** — o acervo é 100% "depois". Os 3 sliders funcionam; o lado esquerdo é
+      um placeholder tracejado. Trocar cada `<div class="ba-ph">` por `<img>` e nada mais muda
+- [ ] **Destino do formulário** — hoje é stub de front-end: mostra sucesso e descarta os dados.
+      Do jeito que está, todo pedido de orçamento se perde em silêncio. Bloqueia a publicação
+- [ ] Email de domínio (hoje Gmail pessoal) e o restante das respostas do Wellington
+      (licença/seguradora, casos concretos)
 
 ## Onde salvar o que
 
